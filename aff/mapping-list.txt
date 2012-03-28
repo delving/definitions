@@ -1,5 +1,0 @@
-/input/lido:lidoRecID
-/record/thing/displayTitle
-
-
-
