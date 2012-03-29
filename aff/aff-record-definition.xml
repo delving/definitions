@@ -89,7 +89,7 @@
                 <elem tag="displayEventType"/>
                 <elem tag="displayEvent"/>
                 <elem tag="displayDate"/>
-                <!-- make ADMIN1 -> 4 into options!!!!!!! -->
+                <!-- make ADMIN1 -> 4 into discriminators!!!!!!! -->
                 <elem tag="eventPlace" elems="placeAdmin" attrs="placeInRoleUri, localId, localUri, displaySource, sourceUri">
                     <elem tag="displayPlaceInRole"/>
                     <elem tag="displayPlace"/>
@@ -113,65 +113,65 @@
     </root>
 
 
-    <options>
+    <discriminators>
 
-        <option-list path="/record/relations/relation" key="@relationTypeUri" value="displayRelationType">
-            <opt default="true" key="http://id.culturecloud.eu/concepts/#isPartOf">Is part of</opt>
-            <opt default="true" key="http://id.culturecloud.eu/concepts/#hasPart">Has part</opt>
-        </option-list>
+        <discriminator-list path="/record/relations/relation" key="@relationTypeUri" value="displayRelationType">
+            <discriminator default="true" key="http://id.culturecloud.eu/concepts/#isPartOf">Is part of</discriminator>
+            <discriminator default="true" key="http://id.culturecloud.eu/concepts/#hasPart">Has part</discriminator>
+        </discriminator-list>
 
-        <option-list path="/record/events/event" key="@eventTypeUri" value="displayEventType">
-            <opt default="true" key="http://www.cidoc-crm.org/rdfs/E12.Production">Production</opt>
-            <opt default="true" key="http://www.cidoc-crm.org/rdfs/E65.Creation">Creation</opt>
-            <opt default="true" key="http://www.cidoc-crm.org/rdfs/E8.Acquisition">Acquisition</opt>
-            <!--<opt key="http://www.cidoc-crm.org/rdfs/E16.Measurement">Measurement</opt>-->
-            <!--<opt key="http://www.cidoc-crm.org/rdfs/E67.Birth">Birth</opt>-->
-            <!--<opt key="http://www.cidoc-crm.org/rdfs/E69.Death">Death</opt>-->
-            <!--<opt key="http://www.cidoc-crm.org/rdfs/E6.Destruction">Destruction</opt>-->
-            <!--<opt key="http://www.cidoc-crm.org/rdfs/E9.Move">Move</opt>-->
-            <!--<opt key="http://www.cidoc-crm.org/rdfs/E10.Transfer_of_Custody">Transfer of Custody</opt>-->
-            <!--<opt key="http://www.cidoc-crm.org/rdfs/E14.Condition_Assessment">Condition Assessment</opt>-->
-            <!--<opt key="http://www.cidoc-crm.org/rdfs/E66.Formation">Formation</opt>-->
-            <!--<opt key="http://www.cidoc-crm.org/rdfs/E85.Joining">Joining</opt>-->
-            <!--<opt key="http://www.cidoc-crm.org/rdfs/E86.Leaving">Leaving</opt>-->
-            <!--<opt key="http://www.cidoc-crm.org/rdfs/F30.Publication Event">Publication Event</opt> &lt;!&ndash; FRBRoo &ndash;&gt;-->
-            <!--<opt key="http://www.cidoc-crm.org/rdfs/F31.Performance">Performance</opt> &lt;!&ndash; FRBRoo &ndash;&gt;-->
-            <!--<opt key="http://id.culturecloud.eu/events/#Collecting">Collecting</opt>-->
-            <!--<opt key="http://id.culturecloud.eu/events/#Commissioning">Commissioning</opt>-->
-            <!--<opt key="http://id.culturecloud.eu/events/#Designing">Designing</opt>-->
-            <!--<opt key="http://id.culturecloud.eu/events/#Excavation">Excavation</opt>-->
-            <!--<opt key="http://id.culturecloud.eu/events/#Exhibition">Exhibition</opt>-->
-            <!--<opt key="http://id.culturecloud.eu/events/#Finding">Finding</opt>-->
-            <!--<opt key="http://id.culturecloud.eu/events/#Loss">Loss</opt>-->
-            <!--<opt key="http://id.culturecloud.eu/events/#Provenance">Provenance</opt>-->
-            <!--<opt key="http://id.culturecloud.eu/events/#Use">Use</opt>-->
-        </option-list>
+        <discriminator-list path="/record/events/event" key="@eventTypeUri" value="displayEventType">
+            <discriminator default="true" key="http://www.cidoc-crm.org/rdfs/E12.Production">Production</discriminator>
+            <discriminator default="true" key="http://www.cidoc-crm.org/rdfs/E65.Creation">Creation</discriminator>
+            <discriminator default="true" key="http://www.cidoc-crm.org/rdfs/E8.Acquisition">Acquisition</discriminator>
+            <!--<discriminator key="http://www.cidoc-crm.org/rdfs/E16.Measurement">Measurement</discriminator>-->
+            <!--<discriminator key="http://www.cidoc-crm.org/rdfs/E67.Birth">Birth</discriminator>-->
+            <!--<discriminator key="http://www.cidoc-crm.org/rdfs/E69.Death">Death</discriminator>-->
+            <!--<discriminator key="http://www.cidoc-crm.org/rdfs/E6.Destruction">Destruction</discriminator>-->
+            <!--<discriminator key="http://www.cidoc-crm.org/rdfs/E9.Move">Move</discriminator>-->
+            <!--<discriminator key="http://www.cidoc-crm.org/rdfs/E10.Transfer_of_Custody">Transfer of Custody</discriminator>-->
+            <!--<discriminator key="http://www.cidoc-crm.org/rdfs/E14.Condition_Assessment">Condition Assessment</discriminator>-->
+            <!--<discriminator key="http://www.cidoc-crm.org/rdfs/E66.Formation">Formation</discriminator>-->
+            <!--<discriminator key="http://www.cidoc-crm.org/rdfs/E85.Joining">Joining</discriminator>-->
+            <!--<discriminator key="http://www.cidoc-crm.org/rdfs/E86.Leaving">Leaving</discriminator>-->
+            <!--<discriminator key="http://www.cidoc-crm.org/rdfs/F30.Publication Event">Publication Event</discriminator> &lt;!&ndash; FRBRoo &ndash;&gt;-->
+            <!--<discriminator key="http://www.cidoc-crm.org/rdfs/F31.Performance">Performance</discriminator> &lt;!&ndash; FRBRoo &ndash;&gt;-->
+            <!--<discriminator key="http://id.culturecloud.eu/events/#Collecting">Collecting</discriminator>-->
+            <!--<discriminator key="http://id.culturecloud.eu/events/#Commissioning">Commissioning</discriminator>-->
+            <!--<discriminator key="http://id.culturecloud.eu/events/#Designing">Designing</discriminator>-->
+            <!--<discriminator key="http://id.culturecloud.eu/events/#Excavation">Excavation</discriminator>-->
+            <!--<discriminator key="http://id.culturecloud.eu/events/#Exhibition">Exhibition</discriminator>-->
+            <!--<discriminator key="http://id.culturecloud.eu/events/#Finding">Finding</discriminator>-->
+            <!--<discriminator key="http://id.culturecloud.eu/events/#Loss">Loss</discriminator>-->
+            <!--<discriminator key="http://id.culturecloud.eu/events/#Provenance">Provenance</discriminator>-->
+            <!--<discriminator key="http://id.culturecloud.eu/events/#Use">Use</discriminator>-->
+        </discriminator-list>
 
-        <option-list path="/record/concepts/concept" key="@conceptCategoryUri" value="displayCategoryType">
-            <opt default="true" key="http://id.culturecloud.eu/concepts/#Classification">Classification</opt>
-            <opt default="true" key="http://id.culturecloud.eu/concepts/#Subject">Subject</opt>
-            <opt default="true" key="http://id.culturecloud.eu/concepts/#Material">Material</opt>
-            <opt default="true" key="http://id.culturecloud.eu/concepts/#Technique">Technique</opt>
-        </option-list>
+        <discriminator-list path="/record/concepts/concept" key="@conceptCategoryUri" value="displayCategoryType">
+            <discriminator default="true" key="http://id.culturecloud.eu/concepts/#Classification">Classification</discriminator>
+            <discriminator default="true" key="http://id.culturecloud.eu/concepts/#Subject">Subject</discriminator>
+            <discriminator default="true" key="http://id.culturecloud.eu/concepts/#Material">Material</discriminator>
+            <discriminator default="true" key="http://id.culturecloud.eu/concepts/#Technique">Technique</discriminator>
+        </discriminator-list>
 
 
 
-        <!--<option-list path="/record/resources/resource/resourceType" valuePath="/record/resources/resource/resourceType">-->
-            <!--<opt default="true" key="THUMBNAIL">Thumbnail</opt>-->
-            <!--<opt default="true" key="FULL_IMAGE">Full image</opt>-->
-            <!--<opt key="DEEP_ZOOM">Deep zoom image</opt>-->
-            <!--<opt key="DOCUMENT">Document</opt>-->
-            <!--<opt key="VIDEO">Video</opt>-->
-            <!--<opt key="SOUND">Sound</opt>-->
-        <!--</option-list>-->
+        <!--<discriminator-list path="/record/resources/resource/resourceType" valuePath="/record/resources/resource/resourceType">-->
+            <!--<discriminator default="true" key="THUMBNAIL">Thumbnail</discriminator>-->
+            <!--<discriminator default="true" key="FULL_IMAGE">Full image</discriminator>-->
+            <!--<discriminator key="DEEP_ZOOM">Deep zoom image</discriminator>-->
+            <!--<discriminator key="DOCUMENT">Document</discriminator>-->
+            <!--<discriminator key="VIDEO">Video</discriminator>-->
+            <!--<discriminator key="SOUND">Sound</discriminator>-->
+        <!--</discriminator-list>-->
 
-        <!--<option-list path="/record/medias/mediaMimeType">-->
-            <!--<opt key="jpeg">jpeg</opt>-->
-            <!--<opt key="tiff">TIFF</opt>-->
-            <!--<opt key="png">PNG</opt>-->
-        <!--</option-list>-->
+        <!--<discriminator-list path="/record/medias/mediaMimeType">-->
+            <!--<discriminator key="jpeg">jpeg</discriminator>-->
+            <!--<discriminator key="tiff">TIFF</discriminator>-->
+            <!--<discriminator key="png">PNG</discriminator>-->
+        <!--</discriminator-list>-->
 
-    </options>
+    </discriminators>
 
     <bookmarks>
 
