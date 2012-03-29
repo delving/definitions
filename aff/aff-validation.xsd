@@ -57,11 +57,11 @@
 
     <xs:complexType name="thingType">
         <xs:sequence>
-            <xs:element type="xs:string" name="thingUri" minOccurs="0" maxOccurs="1"/>
+            <xs:element type="xs:string" name="thingUri" minOccurs="1" maxOccurs="1"/>
             <xs:element type="xs:string" name="displayWorkType" minOccurs="0" maxOccurs="1"/>
             <xs:element type="xs:string" name="displayTitle" minOccurs="0" maxOccurs="1"/>
             <xs:element type="xs:string" name="displayDescription" minOccurs="0" maxOccurs="1"/>
-            <xs:element type="xs:string" name="language" minOccurs="0" maxOccurs="1"/>
+            <xs:element type="xs:string" name="language" minOccurs="1" maxOccurs="1"/>
             <xs:element type="xs:string" name="displayDimensions" minOccurs="0" maxOccurs="unbounded"/>
             <xs:element type="xs:string" name="displayYear" minOccurs="0" maxOccurs="1"/>
             <xs:element type="xs:string" name="rights" minOccurs="0" maxOccurs="1"/>
@@ -71,7 +71,7 @@
         </xs:sequence>
         <xs:attribute ref="aff:localId"/>
     </xs:complexType>
-
+    <!-- bulle-->
     <xs:complexType name="relationsType">
         <xs:sequence>
             <xs:element type="aff:relationType" name="relation" minOccurs="0" maxOccurs="unbounded"/>
@@ -98,9 +98,12 @@
 
     <xs:complexType name="conceptType">
         <xs:sequence>
-            <xs:element type="xs:string" name="displayCategoryType"/>
-            <xs:element type="xs:string" name="displayConcept"/>
+            <xs:element type="xs:string" name="displayCategoryType" minOccurs="0" maxOccurs="1"/>
+            <xs:element type="aff:displayConceptType" name="displayConcept"/>
         </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="displayConceptType">
         <xs:attribute ref="aff:displayConceptType"/>
         <xs:attribute ref="aff:localId"/>
         <xs:attribute ref="aff:localUri"/>
