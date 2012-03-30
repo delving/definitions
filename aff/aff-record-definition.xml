@@ -15,13 +15,16 @@
         <attr tag="relationTypeUri"/>
         <attr tag="eventTypeUri"/>
         <attr tag="conceptCategoryUri"/>
-        <attr tag="actorInRoleUri"/>
-        <attr tag="placeInRoleUri"/>
+        <attr tag="roleInEventUri"/>
         <attr tag="ResourceTypeUri"/>
         <attr tag="isPartOfUri"/>
         <attr tag="isPartOfLocalId"/>
         <attr tag="displayConceptType"/>
         <attr tag="sequence"/>
+        <attr tag="lang"/>
+        <attr tag="hubRecordId"/>  <!-- systemAttribute="true"-->
+        <attr tag="hubRecordUrl"/> <!-- systemAttribute="true"-->
+        <attr tag="delvingMediaUri"/> <!-- systemAttribute="true"-->
     </attrs>
 
     <elems>
@@ -42,6 +45,7 @@
     </elems>
 
     <root tag="record">
+
         <elem tag="admin" singular="true">
             <elem tag="dataOwnerUri"/>
             <elem tag="displayDataOwner"/>
@@ -57,15 +61,15 @@
             <elem tag="displayCollection"/>
         </elem>
 
-        <elem tag="thing" elems="hubRecordId, hubRecordUrl" attrs="localId" singular="true">
+        <elem tag="thing" attrs="localId, lang, hubRecordId, hubRecordUrl" singular="true">
             <elem tag="thingUri"/>
             <elem tag="displayWorkType"/>
             <elem tag="displayTitle"/>
             <elem tag="displayDescription"/>
-            <elem tag="language"/>
-            <elem tag="displayDimensions"/>
+            <elem tag="displayInscription"/>
+            <elem tag="displayDimension"/>
             <elem tag="displayYear"/>
-            <elem tag="rights"/>
+            <elem tag="displayRights"/>
             <elem tag="landingPage"/>
         </elem>
 
@@ -89,32 +93,40 @@
                 <elem tag="displayEventType"/>
                 <elem tag="displayEvent"/>
                 <elem tag="displayDate"/>
-                <!-- make ADMIN1 -> 4 into discriminators!!!!!!! -->
-                <elem tag="eventPlace" elems="placeAdmin" attrs="placeInRoleUri, localId, localUri, displaySource, sourceUri">
-                    <elem tag="displayPlaceInRole"/>
+                <elem tag="eventPlace" elems="placeAdmin" attrs="roleInEventUri, localId, localUri, displaySource, sourceUri">
+                    <elem tag="displayRoleInEvent"/>
                     <elem tag="displayPlace"/>
                     <elem tag="displayPlaceType"/>
                 </elem>
-                <elem tag="eventActor" attrs="actorInRoleUri, localId, localUri, displaySource, sourceUri">
-                    <elem tag="displayActorInRole"/>
+                <elem tag="eventActor" attrs="roleInEventUri, localId, localUri, displaySource, sourceUri">
+                    <elem tag="displayRoleInEvent"/>
                     <elem tag="displayActor"/>
                 </elem>
             </elem>
         </elem>
+
         <elem tag="resources">
-            <elem tag="resource" attrs="ResourceTypeUri">
+            <elem tag="resource" attrs="ResourceTypeUri, delvingMediaUri">
                 <elem tag="displayResourceType"/>
                 <elem tag="resourceURL"/>
                 <elem tag="resourceMimeType"/>
                 <elem tag="resourceRights"/>
-                <elem tag="delvingMediaURI" systemElement="true"/>
             </elem>
         </elem>
     </root>
 
 
-    <discriminators>
+    <facts>
+        <!--<fact-ref path="/record/admin/dataOwnerUri" name="dataOwnerUri"/>-->
+        <fact-ref path="/record/admin/displayDataOwner" name="dataProvider"/>
+        <fact-ref path="/record/admin/displayOwnerCountry" name="country"/>
+        <!--<fact-ref path="/record/admin/dataProviderUri" name="dataProviderUri"/>-->
+        <fact-ref path="/record/admin/displayDataProvider" name="dataProvider"/>
+        <!--<fact-ref path="/record/admin/providerHubUri" name="providerHubUri"/>-->
+        <!--<fact-ref path="/record/admin/displayProviderHub" name="dataProvider"/>-->
+    </facts>
 
+    <discriminators>
         <discriminator-list path="/record/relations/relation" key="@relationTypeUri" value="displayRelationType">
             <discriminator default="true" key="http://id.culturecloud.eu/concepts/#isPartOf">Is part of</discriminator>
             <discriminator default="true" key="http://id.culturecloud.eu/concepts/#hasPart">Has part</discriminator>
@@ -154,7 +166,14 @@
             <discriminator default="true" key="http://id.culturecloud.eu/concepts/#Technique">Technique</discriminator>
         </discriminator-list>
 
-
+        <discriminator-list path="/record/resources/resource" key="@resourceTypeUri" value="displayResourceType">
+            <discriminator default="true" key="http://id.culturecloud.eu/concepts/#Thumbnail">Thumbnail image</discriminator>
+            <discriminator default="true" key="http://id.culturecloud.eu/concepts/#FullImage">Full image</discriminator>
+            <discriminator default="true" key="http://id.culturecloud.eu/concepts/#DeepZoom">Deep zoom image</discriminator>
+            <discriminator default="true" key="http://id.culturecloud.eu/concepts/#Document">Document file</discriminator>
+            <discriminator default="true" key="http://id.culturecloud.eu/concepts/#Sound">Sound file</discriminator>
+            <discriminator default="true" key="http://id.culturecloud.eu/concepts/#Video">Video file</discriminator>
+        </discriminator-list>
 
         <!--<discriminator-list path="/record/resources/resource/resourceType" valuePath="/record/resources/resource/resourceType">-->
             <!--<discriminator default="true" key="THUMBNAIL">Thumbnail</discriminator>-->
@@ -176,17 +195,47 @@
 
     <bookmarks>
 
+        <category name="AdLib">
+            <ref display="object_number" path="/record/thing/thingUri"  localName="">
+                <doc>
+                    <string>bla bla about object_number</string>
+                </doc>
+            </ref>
+            <ref display="object_category" path="/record/thing/displayWorkType"  localName="">
+                <doc>
+                    <string>bla bla about object_category</string>
+                </doc>
+            </ref>
+            <ref display="title" path="/record/thing/displayTitle"  localName="">
+                <doc>
+                    <string>bla bla about title</string>
+                </doc>
+            </ref>
+            <ref display="description" path="/record/thing/displayDescription"  localName="">
+                <doc>
+                    <string>bla bla about description</string>
+                </doc>
+            </ref>
+            <ref display="inscription.content" path="/record/thing/displayInscription"  localName="">
+                <doc>
+                    <string>bla bla about inscription.content</string>
+                </doc>
+            </ref>
+            <ref display="dimension" path="/record/thing/displayDimension"  localName="">
+                <doc>
+                    <string>bla bla about dimension</string>
+                </doc>
+            </ref>
+
+        </category>
+
     </bookmarks>
 
-    <facts>
-        <!--<fact-ref path="/record/admin/dataOwnerUri" name="dataOwnerUri"/>-->
-        <fact-ref path="/record/admin/displayDataOwner" name="dataProvider"/>
-        <fact-ref path="/record/admin/displayOwnerCountry" name="country"/>
-        <!--<fact-ref path="/record/admin/dataProviderUri" name="dataProviderUri"/>-->
-        <fact-ref path="/record/admin/displayDataProvider" name="dataProvider"/>
-        <!--<fact-ref path="/record/admin/providerHubUri" name="providerHubUri"/>-->
-        <!--<fact-ref path="/record/admin/displayProviderHub" name="dataProvider"/>-->
-    </facts>
+    <docs>
+        <doc path="/record/thing/displayTitle">
+            <string>Description: The name given to the resource. Typically, a Title will be a name by which the resource is formally known.</string>
+        </doc>
+    </docs>
 
 </record-definition>
 
