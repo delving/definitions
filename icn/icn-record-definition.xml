@@ -91,8 +91,8 @@
 
     </root>
 
-    <discriminators>
-    </discriminators>
+    <opts>
+    </opts>
 
     <searchFields>
         <searchField name="CREATOR" path="/record/dc:creator"/>

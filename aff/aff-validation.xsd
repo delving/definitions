@@ -121,7 +121,6 @@
         <xs:sequence>
             <xs:element type="aff:eventType" name="event"  minOccurs="0" maxOccurs="unbounded"/>
         </xs:sequence>
-        <xs:attribute ref="aff:eventTypeUri"/>
     </xs:complexType>
 
     <xs:complexType name="eventType">
@@ -129,10 +128,11 @@
             <xs:element type="xs:string" name="displayEventType"/>
             <xs:element type="xs:string" name="displayEvent"/>
             <xs:element type="xs:string" name="displayDate"/>
-            <xs:element type="aff:dateType" name="date"/>
-            <xs:element type="aff:eventPlaceType" name="eventPlace"/>
-            <xs:element type="aff:eventActorType" name="eventActor"/>
+            <!--<xs:element type="aff:dateType" name="date"/>-->
+            <!--<xs:element type="aff:eventPlaceType" name="eventPlace"/>-->
+            <!--<xs:element type="aff:eventActorType" name="eventActor"/>-->
         </xs:sequence>
+        <xs:attribute ref="aff:eventTypeUri"/>
     </xs:complexType>
 
     <xs:complexType name="eventPlaceType">
