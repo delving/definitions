@@ -196,32 +196,32 @@
     <bookmarks>
 
         <category name="AdLib">
-            <ref display="object_number" path="/record/thing/thingUri"  localName="">
+            <ref display="object_number" outputPath="/record/thing/thingUri"  localName="">
                 <doc>
                     <string>bla bla about object_number</string>
                 </doc>
             </ref>
-            <ref display="object_category" path="/record/thing/displayWorkType"  localName="">
+            <ref display="object_category" outputPath="/record/thing/displayWorkType"  localName="">
                 <doc>
                     <string>bla bla about object_category</string>
                 </doc>
             </ref>
-            <ref display="title" path="/record/thing/displayTitle"  localName="">
+            <ref display="title" outputPath="/record/thing/displayTitle"  localName="">
                 <doc>
                     <string>bla bla about title</string>
                 </doc>
             </ref>
-            <ref display="description" path="/record/thing/displayDescription"  localName="">
+            <ref display="description" outputPath="/record/thing/displayDescription"  localName="">
                 <doc>
                     <string>bla bla about description</string>
                 </doc>
             </ref>
-            <ref display="inscription.content" path="/record/thing/displayInscription"  localName="">
+            <ref display="inscription.content" outputPath="/record/thing/displayInscription"  localName="">
                 <doc>
                     <string>bla bla about inscription.content</string>
                 </doc>
             </ref>
-            <ref display="dimension" path="/record/thing/displayDimension"  localName="">
+            <ref display="dimension" outputPath="/record/thing/displayDimension"  localName="">
                 <doc>
                     <string>bla bla about dimension</string>
                 </doc>
