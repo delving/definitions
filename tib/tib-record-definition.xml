@@ -110,19 +110,6 @@
 
     </root>
 
-    <options>
-        <!--<option-list path="/record/technique"> &lt;!&ndash; no keyPath needed in this definition, keys are dummys, Can be deleted but are needed in other rec-defs &ndash;&gt;-->
-            <!--<opt key="1">Schilderkunst</opt>-->
-            <!--<opt key="2">Prentkunst</opt>-->
-            <!--<opt key="3">Fotografie</opt>-->
-            <!--<opt key="4">Tekeningen</opt>-->
-            <!--<opt key="5">Beeldhouwkunst</opt>-->
-            <!--<opt key="6">Textiel</opt>-->
-            <!--<opt key="7">Film/Video/DVD</opt>-->
-            <!--<opt key="8">Anders:</opt>-->
-        <!--</option-list>-->
-    </options>
-
     <searchFields>
         <searchField name="THUMBNAIL" path="/record/tib:thumbLarge"/>
         <searchField name="SNIPPET" path="/record/delving:fullText"/>
@@ -132,47 +119,6 @@
         <searchField name="OWNER" path="/record/europeana:dataProvider"/>
         <searchField name="LANDING_PAGE" path="/record/europeana:isShownAt"/>
     </searchFields>
-
-    <!--<facts>-->
-        <!--<fact name="spec" path="/record/icn:collectionName"/>-->
-        <!--<fact name="name" path="/record/icn:collectionTitle"/>-->
-        <!--<fact name="country" path="/record/icn:country"/>-->
-        <!--<fact name="dataProvider" path="/record/icn:dataProvider"/>-->
-        <!--<fact name="language" path="/record/icn:language"/>-->
-        <!--<fact name="provider" path="/record/icn:provider"/>-->
-        <!--<fact name="rights" path="/record/icn:rights"/>-->
-        <!--<fact name="type" path="/record/icn:type"/>-->
-    <!--</facts>-->
-
-    <!--<converters>-->
-        <!--<converter multipleOutput="true" call=".extractYear()" path="/icn:creatorYearOfBirth"/>-->
-        <!--<converter multipleOutput="true" call=".extractYear()" path="/icn:creatorYearOfDeath"/>-->
-        <!--<converter call=".toLocalId(spec)" path="/europeana:uri"/>-->
-        <!--<converter multipleOutput="true" call=".extractYear()" path="/delving:year"/>-->
-    <!--</converters>-->
-    
-    <docs>
-        <doc path="/record/dc:contributor">
-            <string name="Dublin Core definition">An entity responsible for making contributions to the content of the resource. Examples of a Contributor include a person, an organization or a service. Typically, the name of a Contributor should be used to indicate the entity.</string>
-            <string name="Europeana definition">An entity responsible for making contributions to the resource</string>
-            <string name="Europeana note">The name of contributors to the original analog or born digital object.  This could be a person, an organisation or a service. </string>
-        </doc>
-        <!-- ... -->
-    </docs>
-
-    <bookmarks>
-        <!--<category name="Mandatory ICN elements">-->
-            <!--<doc>-->
-                <!--<string>These elements must be included in any ESE delivery to Europeana</string>-->
-            <!--</doc>-->
-            <!--<ref path="/europeana:provider" display="Provider"/>-->
-            <!--<ref path="/europeana:dataProvider" display="Data provider"/>-->
-            <!--<ref path="/europeana:rights" display="Rights"/>-->
-            <!--<ref path="/europeana:type" display="Type"/>-->
-            <!--<ref path="/europeana:isShownBy" display="Is Shown By"/>-->
-            <!--<ref path="/europeana:isShownAt" display="Is Shown At"/>-->
-        <!--</category>-->
-    </bookmarks>
 
 </record-definition>
 
