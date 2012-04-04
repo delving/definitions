@@ -15,7 +15,12 @@
         <attr tag="displayType" systemField="true"/>
         <attr tag="source"/>
         <attr tag="roleInEventUri"/>
-        <attr tag="displayRoleInEvent"/>
+        <attr tag="displayRoleInEvent">
+            <options>
+                <string>tough cop</string>
+                <string>nice cop</string>
+            </options>
+        </attr>
         <attr tag="isPartOfLocalId"/>
         <attr tag="collectionUri"/>
         <attr tag="isPartOfCollectionUri"/>
