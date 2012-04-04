@@ -9,27 +9,28 @@
 
 
     <xs:attribute name="localId" type="xs:string"/>
-    <xs:attribute name="localUri" type="xs:string"/>
+    <xs:attribute name="source" type="xs:string"/>
     <xs:attribute name="sourceUri" type="xs:string"/>
-    <xs:attribute name="displaySource" type="xs:string"/>
-    <xs:attribute name="relationTypeUri" type="xs:string"/>
-    <xs:attribute name="eventTypeUri" type="xs:string"/>
-    <xs:attribute name="conceptCategoryUri" type="xs:string"/>
+    <xs:attribute name="typeUri" type="xs:string"/>
+    <xs:attribute name="displayType" type="xs:string"/>
     <xs:attribute name="roleInEventUri" type="xs:string"/>
-    <xs:attribute name="ResourceTypeUri" type="xs:string"/>
-    <xs:attribute name="isPartOfUri" type="xs:string"/>
+    <xs:attribute name="displayRoleInEvent" type="xs:string"/>
     <xs:attribute name="isPartOfLocalId" type="xs:string"/>
+    <xs:attribute name="collectionUri" type="xs:string"/>
+    <xs:attribute name="isPartOfCollectionUri" type="xs:string"/>
     <xs:attribute name="displayConceptType" type="xs:string"/>
     <xs:attribute name="sequence" type="xs:string"/>
     <xs:attribute name="lang" type="xs:string"/>
     <xs:attribute name="hubRecordId" type="xs:string"/>
     <xs:attribute name="hubRecordUrl" type="xs:string"/>
     <xs:attribute name="delvingMediaUri" type="xs:string"/>
+    <xs:attribute name="resourceMimeType" type="xs:string"/>
+    <xs:attribute name="resourceRights" type="xs:string"/>
 
     <xs:complexType name="recordType">
         <xs:sequence>
             <xs:element type="aff:adminType" name="admin" minOccurs="1" maxOccurs="1"/>
-            <xs:element type="aff:collectionType" name="collections" minOccurs="0" maxOccurs="1"/>
+            <xs:element type="aff:collectionType" name="collection" minOccurs="0" maxOccurs="1"/>
             <xs:element type="aff:thingType" name="thing" minOccurs="1" maxOccurs="1"/>
             <xs:element type="aff:relationsType" name="relations" minOccurs="0" maxOccurs="1"/>
             <xs:element type="aff:conceptsType" name="concepts" minOccurs="0" maxOccurs="1"/>
@@ -52,12 +53,12 @@
 
     <xs:complexType name="collectionType">
         <xs:sequence>
-            <xs:element type="xs:string" name="collectionUri"/>
-            <xs:element type="xs:string" name="displayCollection"/>
+            <xs:element type="xs:string" name="displayCollection" minOccurs="0" maxOccurs="1"/>
         </xs:sequence>
         <xs:attribute ref="aff:localId"/>
         <xs:attribute ref="aff:isPartOfLocalId"/>
-        <xs:attribute ref="aff:isPartOfUri"/>
+        <xs:attribute ref="aff:collectionUri"/>
+        <xs:attribute ref="aff:isPartOfCollectionUri"/>
     </xs:complexType>
 
     <xs:complexType name="thingType">
@@ -82,41 +83,45 @@
         <xs:sequence>
             <xs:element type="aff:relationType" name="relation" minOccurs="0" maxOccurs="unbounded"/>
         </xs:sequence>
-        <xs:attribute ref="aff:relationTypeUri"/>
+        <xs:attribute ref="aff:typeUri"/>
+        <xs:attribute ref="aff:displayType"/>
     </xs:complexType>
 
     <xs:complexType name="relationType">
         <xs:sequence>
-            <xs:element type="xs:string" name="displayRelationType"/>
             <xs:element type="xs:string" name="displayRelation"/>
         </xs:sequence>
         <xs:attribute ref="aff:localId"/>
-        <xs:attribute ref="aff:localUri"/>
         <xs:attribute ref="aff:sequence"/>
     </xs:complexType>
 
+    <!-- CONCEPTS -->
     <xs:complexType name="conceptsType">
         <xs:sequence>
-            <xs:element type="aff:conceptType" name="concept"  minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element type="aff:conceptType" name="concept" minOccurs="0" maxOccurs="unbounded"/>
         </xs:sequence>
-        <xs:attribute ref="aff:conceptCategoryUri"/>
     </xs:complexType>
 
     <xs:complexType name="conceptType">
         <xs:sequence>
-            <xs:element type="xs:string" name="displayCategoryType" minOccurs="0" maxOccurs="1"/>
-            <xs:element type="aff:displayConceptType" name="displayConcept"/>
+            <xs:element type="aff:displayConceptType" name="displayConcept" maxOccurs="unbounded" minOccurs="0" />
         </xs:sequence>
+        <xs:attribute ref="aff:displayType"/>
+        <xs:attribute ref="aff:typeUri"/>
     </xs:complexType>
 
     <xs:complexType name="displayConceptType">
-        <xs:attribute ref="aff:displayConceptType"/>
-        <xs:attribute ref="aff:localId"/>
-        <xs:attribute ref="aff:localUri"/>
-        <xs:attribute ref="aff:displaySource"/>
-        <xs:attribute ref="aff:sourceUri"/>
+        <xs:simpleContent>
+            <xs:extension base="xs:string">
+                <xs:attribute ref="aff:displayConceptType" use="optional"/>
+                <xs:attribute ref="aff:localId" use="optional"/>
+                <xs:attribute ref="aff:source" use="optional"/>
+                <xs:attribute ref="aff:sourceUri" use="optional"/>
+            </xs:extension>
+        </xs:simpleContent>
     </xs:complexType>
 
+     <!--EVENTS -->
     <xs:complexType name="eventsType">
         <xs:sequence>
             <xs:element type="aff:eventType" name="event"  minOccurs="0" maxOccurs="unbounded"/>
@@ -125,58 +130,61 @@
 
     <xs:complexType name="eventType">
         <xs:sequence>
-            <xs:element type="xs:string" name="displayEventType"/>
-            <xs:element type="xs:string" name="displayEvent"/>
-            <xs:element type="xs:string" name="displayDate"/>
+            <xs:element type="xs:string" name="displayEvent" minOccurs="0"/>
+            <xs:element type="xs:string" name="displayDate" minOccurs="0"/>
             <!--<xs:element type="aff:dateType" name="date"/>-->
-            <!--<xs:element type="aff:eventPlaceType" name="eventPlace"/>-->
-            <!--<xs:element type="aff:eventActorType" name="eventActor"/>-->
+            <xs:element type="aff:eventPlaceType" name="eventPlace" minOccurs="0"/>
+            <xs:element type="aff:eventActorType" name="eventActor" minOccurs="0"/>
         </xs:sequence>
-        <xs:attribute ref="aff:eventTypeUri"/>
+        <xs:attribute ref="aff:typeUri"/>
+        <xs:attribute ref="aff:displayType"/>
     </xs:complexType>
 
     <xs:complexType name="eventPlaceType">
         <xs:sequence>
-            <xs:element type="xs:string" name="displayRoleInEvent"/>
             <xs:element type="xs:string" name="displayPlace"/>
             <xs:element type="xs:string" name="displayPlaceType"/>
             <xs:element type="aff:placeAdminType" name="displayPlaceAdmin"/>
         </xs:sequence>
         <xs:attribute ref="aff:roleInEventUri"/>
+        <xs:attribute ref="aff:displayRoleInEvent"/>
         <xs:attribute ref="aff:localId"/>
-        <xs:attribute ref="aff:localUri"/>
-        <xs:attribute ref="aff:displaySource"/>
+        <xs:attribute ref="aff:source"/>
         <xs:attribute ref="aff:sourceUri"/>
     </xs:complexType>
 
     <xs:complexType name="eventActorType">
         <xs:sequence>
-            <xs:element type="xs:string" name="displayRoleInEvent"/>
             <xs:element type="xs:string" name="displayActor"/>
         </xs:sequence>
         <xs:attribute ref="aff:roleInEventUri"/>
+        <xs:attribute ref="aff:displayRoleInEvent"/>
         <xs:attribute ref="aff:localId"/>
-        <xs:attribute ref="aff:localUri"/>
-        <xs:attribute ref="aff:displaySource"/>
+        <xs:attribute ref="aff:source"/>
         <xs:attribute ref="aff:sourceUri"/>
     </xs:complexType>
 
-
     <xs:complexType name="resourcesType">
         <xs:sequence>
-            <xs:element type="aff:relationType" name="relation" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element type="aff:resourceType" name="resource" minOccurs="0" maxOccurs="unbounded"/>
         </xs:sequence>
-        <xs:attribute ref="aff:ResourceTypeUri"/>
-        <xs:attribute ref="aff:delvingMediaUri"/>
     </xs:complexType>
 
     <xs:complexType name="resourceType">
         <xs:sequence>
-            <xs:element type="xs:string" name="displayResourceType"/>
-            <xs:element type="xs:string" name="mediaURL"/>
-            <xs:element type="xs:string" name="mediaMimeType"/>
-            <xs:element type="xs:string" name="resourceRights"/>
+            <xs:element type="aff:resourceURLType" name="resourceURL" minOccurs="0" maxOccurs="unbounded"/>
         </xs:sequence>
+        <xs:attribute ref="aff:typeUri"/>
+        <xs:attribute ref="aff:displayType"/>
+    </xs:complexType>
+
+    <xs:complexType name="resourceURLType">
+        <xs:simpleContent>
+            <xs:extension base="xs:string">
+                <xs:attribute ref="aff:resourceMimeType"/>
+                <xs:attribute ref="aff:resourceRights"/>
+            </xs:extension>
+        </xs:simpleContent>
     </xs:complexType>
 
     <xs:complexType name="dateType">
@@ -197,7 +205,5 @@
             <xs:element type="xs:string" name="long"/>
         </xs:sequence>
     </xs:complexType>
-
-
 
 </xs:schema>

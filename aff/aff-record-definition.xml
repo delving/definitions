@@ -8,28 +8,28 @@
     </namespaces>
 
     <attrs>
+
         <attr tag="localId"/>
-        <attr tag="localUri"/>
         <attr tag="sourceUri"/>
-        <attr tag="displaySource"/>
-        <attr tag="relationTypeUri"/>
-        <attr tag="eventTypeUri"/>
-        <attr tag="conceptCategoryUri"/>
+        <attr tag="typeUri" systemField="true"/>
+        <attr tag="displayType" systemField="true"/>
+        <attr tag="source"/>
         <attr tag="roleInEventUri"/>
-        <attr tag="ResourceTypeUri"/>
-        <attr tag="isPartOfUri"/>
+        <attr tag="displayRoleInEvent"/>
         <attr tag="isPartOfLocalId"/>
-        <attr tag="displayConceptType"/>
+        <attr tag="collectionUri"/>
+        <attr tag="isPartOfCollectionUri"/>
         <attr tag="sequence"/>
         <attr tag="lang"/>
-        <attr tag="hubRecordId"/>  <!-- systemAttribute="true"-->
-        <attr tag="hubRecordUrl"/> <!-- systemAttribute="true"-->
-        <attr tag="delvingMediaUri"/> <!-- systemAttribute="true"-->
+        <attr tag="displayConceptType"/>
+        <attr tag="hubRecordId" systemField="true"/>
+        <attr tag="hubRecordUrl" systemField="true"/>
+        <attr tag="delvingMediaUri" systemField="true"/>
+        <attr tag="resourceMimeType"/>
+        <attr tag="resourceRights"/>
     </attrs>
 
     <elems>
-        <elem tag="hubRecordId" systemElement="true"/>
-        <elem tag="hubRecordUrl" systemElement="true"/>
         <elem tag="date" elems="earliestDate, latestDate"/>
             <elem tag="earliestDate"/>
             <elem tag="latestDate"/>
@@ -44,9 +44,9 @@
         <elem tag="long"/>
     </elems>
 
-    <root tag="record">
 
-        <elem tag="admin" singular="true">
+    <root tag="record">
+        <elem tag="admin" singular="true" unmappable="true">
             <elem tag="dataOwnerUri"/>
             <elem tag="displayDataOwner"/>
             <elem tag="displayOwnerCountry"/>
@@ -56,12 +56,11 @@
             <elem tag="displayProviderHub"/>
         </elem>
 
-        <elem tag="collection" attrs="localId, isPartOfLocalId, isPartOfUri" singular="true">
-            <elem tag="collectionUri"/>
+        <elem tag="collection" attrs="localId, isPartOfLocalId, collectionUri, isPartOfCollectionUri" singular="true" unmappable="true">
             <elem tag="displayCollection"/>
         </elem>
 
-        <elem tag="thing" attrs="localId, lang, hubRecordId, hubRecordUrl" singular="true">
+        <elem tag="thing" attrs="localId, lang, hubRecordId, hubRecordUrl" singular="true" unmappable="true">
             <elem tag="thingUri"/>
             <elem tag="displayWorkType"/>
             <elem tag="displayTitle"/>
@@ -73,51 +72,45 @@
             <elem tag="landingPage"/>
         </elem>
 
-        <elem tag="relations" singular="true">
-            <elem tag="relation" attrs="relationTypeUri">
-                <elem tag="displayRelationType"/>
-                <elem tag="displayRelation" attrs="localId, localUri, sequence"/>
+        <elem tag="relations" singular="true" unmappable="true">
+            <elem tag="relation" attrs="typeUri, displayType">
+                <elem tag="displayRelation" attrs="localId, sequence"/>
                 <elem tag="displayRelationSequence"/>
             </elem>
         </elem>
 
-        <elem tag="concepts" singular="true">
-            <elem tag="concept" attrs="conceptCategoryUri">
-                <elem tag="displayCategoryType"/>
-                <elem tag="displayConcept" attrs="displayConceptType, localId, localUri, displaySource, sourceUri"/>
+        <elem tag="concepts" singular="true" unmappable="true">
+            <elem tag="concept" attrs="typeUri, displayType">
+                <elem tag="displayConcept" attrs="displayConceptType, localId, source, sourceUri"/>
             </elem>
         </elem>
 
-        <elem tag="events" singular="true">
-            <elem tag="event" elems="date" attrs="eventTypeUri">
-                <elem tag="displayEventType"/>
+        <elem tag="events" singular="true" unmappable="true">
+            <elem tag="event" elems="date" attrs="typeUri, displayType">
                 <elem tag="displayEvent"/>
                 <elem tag="displayDate"/>
-                <elem tag="eventPlace" elems="placeAdmin" attrs="roleInEventUri, localId, localUri, displaySource, sourceUri">
-                    <elem tag="displayRoleInEvent"/>
+
+                <elem tag="eventPlace" elems="placeAdmin" attrs="roleInEventUri, displayRoleInEvent, localId, source, sourceUri">
                     <elem tag="displayPlace"/>
                     <elem tag="displayPlaceType"/>
                 </elem>
-                <elem tag="eventActor" attrs="roleInEventUri, localId, localUri, displaySource, sourceUri">
-                    <elem tag="displayRoleInEvent"/>
+
+                <elem tag="eventActor" attrs="roleInEventUri, displayRoleInEvent, localId, source, sourceUri">
                     <elem tag="displayActor"/>
                 </elem>
             </elem>
         </elem>
 
-        <elem tag="resources">
-            <elem tag="resource" attrs="ResourceTypeUri, delvingMediaUri">
-                <elem tag="displayResourceType"/>
+        <elem tag="resources" unmappable="true">
+            <elem tag="resource" attrs="typeUri, displayType, resourceMimeType, resourceRights">
                 <elem tag="resourceURL"/>
-                <elem tag="resourceMimeType"/>
-                <elem tag="resourceRights"/>
             </elem>
         </elem>
     </root>
 
 
     <facts>
-        <!--<fact-ref path="/record/admin/dataOwnerUri" name="dataOwnerUri"/>-->
+        <fact-ref path="/record/admin/dataOwnerUri" name="provider"/>
         <fact-ref path="/record/admin/displayDataOwner" name="dataProvider"/>
         <fact-ref path="/record/admin/displayOwnerCountry" name="country"/>
         <!--<fact-ref path="/record/admin/dataProviderUri" name="dataProviderUri"/>-->
@@ -127,12 +120,12 @@
     </facts>
 
     <opts>
-        <opt-list path="/record/relations/relation" key="@relationTypeUri" value="displayRelationType">
+        <opt-list path="/record/relations/relation" key="@typeUri" value="@displayType">
             <opt default="true" key="http://id.culturecloud.eu/concepts/#isPartOf">Is part of</opt>
             <opt default="true" key="http://id.culturecloud.eu/concepts/#hasPart">Has part</opt>
         </opt-list>
 
-        <opt-list path="/record/events/event" key="@eventTypeUri" value="displayEventType">
+        <opt-list path="/record/events/event" key="@typeUri" value="@displayType">
             <opt default="true" key="http://www.cidoc-crm.org/rdfs/E12.Production">Production</opt>
             <opt default="true" key="http://www.cidoc-crm.org/rdfs/E65.Creation">Creation</opt>
             <opt default="true" key="http://www.cidoc-crm.org/rdfs/E8.Acquisition">Acquisition</opt>
@@ -159,20 +152,20 @@
             <!--<opt key="http://id.culturecloud.eu/events/#Use">Use</opt>-->
         </opt-list>
 
-        <opt-list path="/record/concepts/concept" key="@conceptCategoryUri" value="displayCategoryType">
+        <opt-list path="/record/concepts/concept" key="@typeUri" value="@displayType">
             <opt default="true" key="http://id.culturecloud.eu/concepts/#Classification">Classification</opt>
             <opt default="true" key="http://id.culturecloud.eu/concepts/#Subject">Subject</opt>
             <opt default="true" key="http://id.culturecloud.eu/concepts/#Material">Material</opt>
             <opt default="true" key="http://id.culturecloud.eu/concepts/#Technique">Technique</opt>
         </opt-list>
 
-        <opt-list path="/record/resources/resource" key="@resourceTypeUri" value="displayResourceType">
+        <opt-list path="/record/resources/resource" key="@typeUri" value="@displayType">
             <opt default="true" key="http://id.culturecloud.eu/concepts/#Thumbnail">Thumbnail image</opt>
             <opt default="true" key="http://id.culturecloud.eu/concepts/#FullImage">Full image</opt>
-            <opt default="true" key="http://id.culturecloud.eu/concepts/#DeepZoom">Deep zoom image</opt>
-            <opt default="true" key="http://id.culturecloud.eu/concepts/#Document">Document file</opt>
-            <opt default="true" key="http://id.culturecloud.eu/concepts/#Sound">Sound file</opt>
-            <opt default="true" key="http://id.culturecloud.eu/concepts/#Video">Video file</opt>
+            <!--<opt default="true" key="http://id.culturecloud.eu/concepts/#DeepZoom">Deep zoom image</opt>-->
+            <!--<opt default="true" key="http://id.culturecloud.eu/concepts/#Document">Document file</opt>-->
+            <!--<opt default="true" key="http://id.culturecloud.eu/concepts/#Sound">Sound file</opt>-->
+            <!--<opt default="true" key="http://id.culturecloud.eu/concepts/#Video">Video file</opt>-->
         </opt-list>
 
         <!--<opt-list path="/record/resources/resource/resourceType" valuePath="/record/resources/resource/resourceType">-->
@@ -196,32 +189,32 @@
     <bookmarks>
 
         <category name="AdLib">
-            <ref display="object_number" path="/record/thing/thingUri"  localName="">
+            <ref display="object_number" outputPath="/record/thing/thingUri"  localName="">
                 <doc>
                     <string>bla bla about object_number</string>
                 </doc>
             </ref>
-            <ref display="object_category" path="/record/thing/displayWorkType"  localName="">
+            <ref display="object_category" outputPath="/record/thing/displayWorkType"  localName="">
                 <doc>
                     <string>bla bla about object_category</string>
                 </doc>
             </ref>
-            <ref display="title" path="/record/thing/displayTitle"  localName="">
+            <ref display="title" outputPath="/record/thing/displayTitle"  localName="">
                 <doc>
                     <string>bla bla about title</string>
                 </doc>
             </ref>
-            <ref display="description" path="/record/thing/displayDescription"  localName="">
+            <ref display="description" outputPath="/record/thing/displayDescription"  localName="">
                 <doc>
                     <string>bla bla about description</string>
                 </doc>
             </ref>
-            <ref display="inscription.content" path="/record/thing/displayInscription"  localName="">
+            <ref display="inscription.content" outputPath="/record/thing/displayInscription"  localName="">
                 <doc>
                     <string>bla bla about inscription.content</string>
                 </doc>
             </ref>
-            <ref display="dimension" path="/record/thing/displayDimension"  localName="">
+            <ref display="dimension" outputPath="/record/thing/displayDimension"  localName="">
                 <doc>
                     <string>bla bla about dimension</string>
                 </doc>
@@ -238,4 +231,3 @@
     </docs>
 
 </record-definition>
-
