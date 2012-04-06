@@ -140,7 +140,8 @@
     <xs:complexType name="eventType">
         <xs:sequence>
             <xs:element type="xs:string" name="displayEvent" minOccurs="0" maxOccurs="1"/>
-            <xs:element type="xs:string" name="displayDate" minOccurs="0" maxOccurs="1"/>
+            <xs:element type="xs:string" name="displayEventDate" minOccurs="0" maxOccurs="1"/>
+            <xs:element type="xs:string" name="displayEventMethod" minOccurs="0" maxOccurs="1"/>
             <xs:element type="aff:eventPlaceType" name="eventPlace" minOccurs="0"  maxOccurs="unbounded"/>
             <xs:element type="aff:eventActorType" name="eventActor" minOccurs="0" maxOccurs="unbounded"/>
             <xs:element type="aff:dateType" name="date"  minOccurs="0" maxOccurs="1"/>

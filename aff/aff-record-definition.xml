@@ -93,7 +93,8 @@
         <elem tag="events" singular="true" unmappable="true">
             <elem tag="event" elems="date" attrs="typeUri, displayType">
                 <elem tag="displayEvent"/>
-                <elem tag="displayDate"/>
+                <elem tag="displayEventDate"/>
+                <elem tag="displayEventMethod"/>
 
                 <elem tag="eventPlace" elems="placeAdmin" attrs="roleInEventUri, displayRoleInEvent, localId, source, sourceUri">
                     <elem tag="displayPlace"/>
@@ -158,10 +159,10 @@
         </opt-list>
 
         <opt-list path="/record/concepts/concept" key="@typeUri" value="@displayType">
-            <opt default="true" key="http://id.culturecloud.eu/concepts/#Classification">Classification</opt>
-            <opt default="true" key="http://id.culturecloud.eu/concepts/#Subject">Subject</opt>
-            <opt default="true" key="http://id.culturecloud.eu/concepts/#Material">Material</opt>
-            <opt default="true" key="http://id.culturecloud.eu/concepts/#Technique">Technique</opt>
+            <opt default="true" key="http://id.culturecloud.eu/concepts/#ObjectName">Object names</opt>
+            <opt default="true" key="http://id.culturecloud.eu/concepts/#Subject">Subjects</opt>
+            <opt default="true" key="http://id.culturecloud.eu/concepts/#Material">Materials</opt>
+            <opt default="true" key="http://id.culturecloud.eu/concepts/#Technique">Techniques</opt>
         </opt-list>
 
         <opt-list path="/record/resources/resource" key="@typeUri" value="@displayType">
