@@ -1,233 +1,177 @@
 <?xml version="1.0"?>
 <record-definition prefix="aff" flat="false">
 
-    <!--<version>1.0</version>-->
 
     <namespaces>
-        <namespace prefix="aff2" uri="http://schemas.delving.eu/aff/"
+        <namespace prefix="aff" uri="http://schemas.delving.eu/aff/"
                    schema="http://schemas.delving.eu/aff/aff_1.0.xsd"/>
     </namespaces>
 
     <attrs>
+
         <attr tag="localId"/>
-        <attr tag="categoryUri"/>
         <attr tag="sourceUri"/>
+        <attr tag="typeUri" systemField="true"/>
+        <attr tag="displayType" systemField="true"/>
         <attr tag="source"/>
         <attr tag="roleInEventUri"/>
+        <attr tag="displayRoleInEvent">
+            <options>
+                <string>tough cop</string>
+                <string>nice cop</string>
+            </options>
+        </attr>
         <attr tag="isPartOfLocalId"/>
         <attr tag="collectionUri"/>
         <attr tag="isPartOfCollectionUri"/>
+        <attr tag="sequence"/>
         <attr tag="lang"/>
-        <attr tag="MIME"/>
-        <attr tag="rightsUri"/>
-        <attr tag="uri"/>
-        <attr tag="relationType"/>
-        <attr tag="dataProviderUri"/>
-        <attr tag="providerUri"/>
-        <attr tag="providerHubUri"/>
-        <attr tag="typeUri" systemField="true"/>
+        <attr tag="displayConceptType"/>
         <attr tag="hubRecordId" systemField="true"/>
         <attr tag="hubRecordUrl" systemField="true"/>
         <attr tag="delvingMediaUri" systemField="true"/>
-
+        <attr tag="resourceMimeType"/>
+        <attr tag="resourceRights"/>
     </attrs>
 
     <elems>
         <elem tag="date" elems="earliestDate, latestDate"/>
             <elem tag="earliestDate"/>
             <elem tag="latestDate"/>
+        <elem tag="placeAdmin"
+            elems="displayAdmin1, displayAdmin2, displayAdmin3, displayAdmin4, displayCountry, lat, long"/>
+        <elem tag="displayAdmin1"/>
+        <elem tag="displayAdmin2"/>
+        <elem tag="displayAdmin3"/>
+        <elem tag="displayAdmin4"/>
+        <elem tag="displayCountry"/>
+        <elem tag="lat"/>
+        <elem tag="long"/>
     </elems>
 
 
     <root tag="record">
-
-        <elem tag="admin" singular="true" attrs="dataProviderUri, providerUri, providerHubUri" unmapable="true">
+        <elem tag="admin" singular="true" unmappable="true">
+            <elem tag="dataOwnerUri"/>
+            <elem tag="displayDataOwner"/>
+            <elem tag="displayOwnerCountry"/>
+            <elem tag="dataProviderUri"/>
             <elem tag="displayDataProvider"/>
-            <elem tag="displayDataProviderCountry"/>
-            <elem tag="displayProvider"/>
-            <elem tag="UGC"/>
+            <elem tag="providerHubUri"/>
+            <elem tag="displayProviderHub"/>
         </elem>
 
-        <elem tag="thing" attrs="localId, categoryUri, lang, hubRecordId" singular="true" unmapable="true">
-            <elem tag="uri"/>
-            <elem tag="category" attrs="typeUri">
-                <elem tag="displayType" systemField="true"/>
-                <elem tag="displayCategory"/>
-            </elem>
-            <elem tag="displayIdentification"/>
+        <elem tag="collection" attrs="localId, isPartOfLocalId, collectionUri, isPartOfCollectionUri" singular="true" unmappable="true">
+            <elem tag="displayCollection"/>
+        </elem>
+
+        <elem tag="thing" attrs="localId, lang, hubRecordId, hubRecordUrl" singular="true" unmappable="true">
+            <elem tag="thingUri"/>
+            <elem tag="displayWorkType"/>
             <elem tag="displayTitle"/>
             <elem tag="displayDescription"/>
             <elem tag="displayInscription"/>
             <elem tag="displayDimension"/>
             <elem tag="displayYear"/>
             <elem tag="displayRights"/>
+            <elem tag="landingPage"/>
         </elem>
 
-        <elem tag="collections" singular="true" unmapable="true">
-            <elem tag="collection" attrs="typeUri, localId" unmapable="true">
-                <elem tag="displayType" systemField="true"/>
-                <elem tag="displayCollection"/>
-                <elem tag="displayDescription"/>
-                <elem tag="isPartOfCollection" attrs="typeUri, localId" unmapable="true">
-
-                    <elem tag="displayType" systemField="true"/>
-                    <elem tag="displayCollection"/>
-                    <elem tag="displayDescription"/>
-
-                    <elem tag="isPartOfCollection" attrs="typeUri, localId" unmapable="true">
-                        <elem tag="displayType" systemField="true"/>
-                        <elem tag="displayCollection"/>
-                        <elem tag="displayDescription"/>
-                    </elem>
-                </elem>
+        <elem tag="relations" singular="true" unmappable="true">
+            <elem tag="relation" attrs="typeUri, displayType">
+                <elem tag="displayRelation" attrs="localId, sequence"/>
+                <elem tag="displayRelationSequence"/>
             </elem>
         </elem>
 
-        <elem tag="relations" singular="true" unmapable="true">
-            <elem tag="relation" attrs="typeUri, localId, uri, relationType">
-                <elem tag="displayType"/>
-                <elem tag="displayRelation"/>
+        <elem tag="concepts" singular="true" unmappable="true">
+            <elem tag="concept" attrs="typeUri, displayType">
+                <elem tag="displayConcept" attrs="displayConceptType, localId, source, sourceUri"/>
             </elem>
         </elem>
 
-        <elem tag="concepts" singular="true" unmapable="true">
-            <elem tag="concept" attrs="typeUri, localId, source, sourceUri">
-                <elem tag="displayType"/>
-                <elem tag="displayConcept"/>
-            </elem>
-        </elem>
-
-        <elem tag="events" singular="true" unmapable="true">
-            <elem tag="event" elems="date" attrs="typeUri">
-                <elem tag="displayType" systemField="true"/>
-                <elem tag="displayDate"/>
+        <elem tag="events" singular="true" unmappable="true">
+            <elem tag="event" elems="date" attrs="typeUri, displayType">
                 <elem tag="displayEvent"/>
-                <elem tag="displayMethod"/>
-                <elem tag="displayDescription"/>
+                <elem tag="displayEventDate"/>
+                <elem tag="displayEventMethod"/>
 
-                <elem tag="eventActor" attrs="typeUri, roleInEventUri, localId, source, sourceUri">
-                    <elem tag="displayType" systemField="true"/>
-                    <elem tag="displayRoleInEvent"/>
-                    <elem tag="displayActor"/>
-                    <elem tag="displayNationality"/>
-                    <elem tag="displayDescription"/>
-
-                    <elem tag="relatedEvent" attrs="typeUri">
-                        <elem tag="displayType"  systemField="true"/>
-                        <elem tag="displayDate"/>
-                        <elem tag="displayDescription"/>
-
-                        <elem tag="relatedEventPlace" attrs="typeUri,localId, source, sourceUri" unmapable="true">
-                            <elem tag="displayType" systemField="true"/>
-                            <elem tag="displayPlace"/>
-                            <elem tag="lat"/>
-                            <elem tag="long"/>
-                        </elem>
-                    </elem>
+                <elem tag="eventPlace" elems="placeAdmin" attrs="roleInEventUri, displayRoleInEvent, localId, source, sourceUri">
+                    <elem tag="displayPlace"/>
+                    <elem tag="displayPlaceType"/>
                 </elem>
 
-                <elem tag="eventPlace" attrs="typeUri,roleInEventUri, localId, source, sourceUri" >
-                    <elem tag="displayType" systemField="true"/>
-                    <elem tag="displayRoleInEvent"/>
-                    <elem tag="displayPlace"/>
-                    <elem tag="displayDescription"/>
-                    <elem tag="lat"/>
-                    <elem tag="long"/>
-
-                    <elem tag="partOfPlace" attrs="typeUri, localId">
-                        <elem tag="displayType" systemField="true"/>
-                        <elem tag="displayPlace"/>
-                        <elem tag="lat"/>
-                        <elem tag="long"/>
-                    </elem>
+                <elem tag="eventActor" attrs="roleInEventUri, displayRoleInEvent, localId, source, sourceUri">
+                    <elem tag="displayActor"/>
                 </elem>
             </elem>
         </elem>
 
-        <elem tag="resources" singular="true" unmapable="true">
-            <elem tag="resource" attrs="typeUri, MIME, rightsUri">
-                <elem tag="displayType" systemField="true"/>
-                <elem tag="resourceUrl"/>
-                <elem tag="displayRights"/>
+        <elem tag="resources" unmappable="true">
+            <elem tag="resource" attrs="typeUri, displayType, resourceMimeType, resourceRights">
+                <elem tag="resourceURL"/>
             </elem>
         </elem>
     </root>
 
 
     <facts>
+        <fact-ref path="/record/admin/dataOwnerUri" name="provider"/>
+        <fact-ref path="/record/admin/displayDataOwner" name="dataProvider"/>
+        <fact-ref path="/record/admin/displayOwnerCountry" name="country"/>
+        <!--<fact-ref path="/record/admin/dataProviderUri" name="dataProviderUri"/>-->
         <fact-ref path="/record/admin/displayDataProvider" name="dataProvider"/>
-        <fact-ref path="/record/admin/displayDataProviderCountry" name="country"/>
-        <fact-ref path="/record/admin/displayProvider" name="provider"/>
-        <!--<fact-ref path="/record/admin/@dataProviderUri" name="provider"/>-->
-        <!--<fact-ref path="/record/admin/@providerUri" name="dataProviderUri"/>-->
-        <!--<fact-ref path="/record/admin/@providerHubUri" name="providerHubUri"/>-->
+        <!--<fact-ref path="/record/admin/providerHubUri" name="providerHubUri"/>-->
         <!--<fact-ref path="/record/admin/displayProviderHub" name="dataProvider"/>-->
     </facts>
 
     <opts>
-
-        <opt-list path="/record/relations/relation" key="@typeUri" value="displayType">
-            <opt default="true" key="http://id.culturecloud.eu/concepts/#isPartOf">Is part of</opt>
-            <opt default="true" key="http://id.culturecloud.eu/concepts/#hasPart">Has part</opt>
-            <opt default="true" key="http://id.culturecloud.eu/concepts/#sameaAs">Same as</opt>
+        <opt-list path="/record/relations/relation" key="@typeUri" value="@displayType">
+            <opt key="http://id.culturecloud.eu/concepts/#isPartOf">Is part of</opt>
+            <opt key="http://id.culturecloud.eu/concepts/#hasPart">Has part</opt>
         </opt-list>
 
-        <opt-list path="/record/events/event" key="@typeUri" value="displayType">
-            <opt default="true" key="crm:E12">Production</opt>
-            <opt default="true" key="crm:E65">Creation</opt>
-            <opt default="true" key="crm:E8">Acquisition</opt>
-            <!--<opt key="crm:E16">Measurement</opt>-->
-            <!--<opt key="crm:E69">Death</opt>-->
-            <!--<opt key="crm:E6">Destruction</opt>-->
-            <!--<opt key="crm:E9">Move</opt>-->
-            <!--<opt key="crm:E10">Transfer of Custody</opt>-->
-            <!--<opt key="crm:E14">Condition Assessment</opt>-->
-            <!--<opt key="crm:E66">Formation</opt>-->
-            <!--<opt key="crm:E85">Joining</opt>-->
-            <!--<opt key="crm:E86">Leaving</opt>-->
-            <!--<opt key="crm:F30">Publication Event</opt> &lt;!&ndash; FRBRoo &ndash;&gt;-->
-            <!--<opt key="crm:F31">Performance</opt> &lt;!&ndash; FRBRoo &ndash;&gt;-->
-            <!--<opt key="http://id.culturecloud.eu/events/#Collecting">Collecting</opt>-->
-            <!--<opt key="http://id.culturecloud.eu/events/#Commissioning">Commissioning</opt>-->
-            <!--<opt key="http://id.culturecloud.eu/events/#Designing">Designing</opt>-->
-            <!--<opt key="http://id.culturecloud.eu/events/#Excavation">Excavation</opt>-->
-            <!--<opt key="http://id.culturecloud.eu/events/#Exhibition">Exhibition</opt>-->
-            <!--<opt key="http://id.culturecloud.eu/events/#Finding">Finding</opt>-->
-            <!--<opt key="http://id.culturecloud.eu/events/#Loss">Loss</opt>-->
-            <!--<opt key="http://id.culturecloud.eu/events/#Use">Use</opt>-->
-            <opt key="http://id.culturecloud.eu/events/#meeting">Meeting</opt>
+        <opt-list path="/record/events/event" key="@typeUri" value="@displayType">
+            <opt key="http://www.cidoc-crm.org/rdfs/E12.Production">Production</opt>
+            <opt key="http://www.cidoc-crm.org/rdfs/E65.Creation">Creation</opt>
+            <opt key="http://www.cidoc-crm.org/rdfs/E8.Acquisition">Acquisition</opt>
+            <opt hidden="true" key="http://www.cidoc-crm.org/rdfs/E16.Measurement">Measurement</opt>
+            <opt hidden="true" key="http://www.cidoc-crm.org/rdfs/E67.Birth">Birth</opt>
+            <opt hidden="true" key="http://www.cidoc-crm.org/rdfs/E69.Death">Death</opt>
+            <opt hidden="true" key="http://www.cidoc-crm.org/rdfs/E6.Destruction">Destruction</opt>
+            <opt hidden="true" key="http://www.cidoc-crm.org/rdfs/E9.Move">Move</opt>
+            <opt hidden="true" key="http://www.cidoc-crm.org/rdfs/E10.Transfer_of_Custody">Transfer of Custody</opt>
+            <opt hidden="true" key="http://www.cidoc-crm.org/rdfs/E14.Condition_Assessment">Condition Assessment</opt>
+            <opt hidden="true" key="http://www.cidoc-crm.org/rdfs/E66.Formation">Formation</opt>
+            <opt hidden="true" key="http://www.cidoc-crm.org/rdfs/E85.Joining">Joining</opt>
+            <opt hidden="true" key="http://www.cidoc-crm.org/rdfs/E86.Leaving">Leaving</opt>
+            <opt hidden="true" key="http://www.cidoc-crm.org/rdfs/F30.Publication Event">Publication Event</opt> <!-- FRBRoo -->
+            <opt hidden="true" key="http://www.cidoc-crm.org/rdfs/F31.Performance">Performance</opt> <!-- FRBRoo -->
+            <opt hidden="true" key="http://id.culturecloud.eu/events/#Collecting">Collecting</opt>
+            <opt hidden="true" key="http://id.culturecloud.eu/events/#Commissioning">Commissioning</opt>
+            <opt hidden="true" key="http://id.culturecloud.eu/events/#Designing">Designing</opt>
+            <opt hidden="true" key="http://id.culturecloud.eu/events/#Excavation">Excavation</opt>
+            <opt hidden="true" key="http://id.culturecloud.eu/events/#Exhibition">Exhibition</opt>
+            <opt hidden="true" key="http://id.culturecloud.eu/events/#Finding">Finding</opt>
+            <opt hidden="true" key="http://id.culturecloud.eu/events/#Loss">Loss</opt>
+            <opt hidden="true" key="http://id.culturecloud.eu/events/#Provenance">Provenance</opt>
+            <opt hidden="true" key="http://id.culturecloud.eu/events/#Use">Use</opt>
         </opt-list>
 
-        <opt-list path="/record/events/event/eventActor/relatedEvent" key="@typeUri" value="@displayType">
-            <opt key="crm:E67">Birth</opt>
-            <opt key="crm:E69">Death</opt>
+        <opt-list path="/record/concepts/concept" key="@typeUri" value="@displayType">
+            <opt key="http://id.culturecloud.eu/concepts/#ObjectName">Object names</opt>
+            <opt key="http://id.culturecloud.eu/concepts/#Subject">Subjects</opt>
+            <opt key="http://id.culturecloud.eu/concepts/#Material">Materials</opt>
+            <opt key="http://id.culturecloud.eu/concepts/#Technique">Techniques</opt>
         </opt-list>
 
-        <opt-list path="/record/events/event/eventPlace/partOfPlace" key="@typeUri" value="@displayType">
-            <opt default="true" key="http://www.geonames.org/#admin2">Municipality</opt>
-            <opt default="true" key="http://www.geonames.org/#admin1">Region</opt>
-            <opt default="true" key="http://www.geonames.org/#countryCode">Country</opt>
-        </opt-list>
-
-
-        <opt-list path="/record/concepts/concept" key="@typeUri" value="displayType">
-            <opt default="true" key="http://id.culturecloud.eu/concepts/#workType">Work type</opt>
-            <opt default="true" key="http://id.culturecloud.eu/concepts/#objectName">Object name/keyword</opt>
-            <opt default="true" key="http://id.culturecloud.eu/concepts/#classification">Classification</opt>
-            <opt default="true" key="crm:P129B">Subject</opt>
-            <opt default="true" key="crm:E57">Material</opt>
-            <opt default="true" key="crm:P32F">Technique</opt>
-        </opt-list>
-
-        <opt-list path="/record/resources/resource" key="@typeUri" value="displayType">
-            <opt default="true" key="http://id.culturecloud.eu/concepts/#thumbnail">Thumbnail image</opt>
-            <opt default="true" key="http://id.culturecloud.eu/concepts/#fullImage">Full image</opt>
-            <opt default="true" key="http://id.culturecloud.eu/concepts/#landingPage">Landing page</opt>
-            <!--<opt default="true" key="http://id.culturecloud.eu/concepts/#hubRecordUrl">Hub URL</opt>-->
-            <!--<opt default="true" key="http://id.culturecloud.eu/concepts/#DeepZoom">Deep zoom image</opt>-->
-            <!--<opt default="true" key="http://id.culturecloud.eu/concepts/#Document">Document file</opt>-->
-            <!--<opt default="true" key="http://id.culturecloud.eu/concepts/#Sound">Sound file</opt>-->
-            <!--<opt default="true" key="http://id.culturecloud.eu/concepts/#Video">Video file</opt>-->
+        <opt-list path="/record/resources/resource" key="@typeUri" value="@displayType">
+            <opt key="http://id.culturecloud.eu/concepts/#Thumbnail">Thumbnail image</opt>
+            <opt key="http://id.culturecloud.eu/concepts/#FullImage">Full image</opt>
+            <opt hidden="true" key="http://id.culturecloud.eu/concepts/#DeepZoom">Deep zoom image</opt>
+            <opt hidden="true" key="http://id.culturecloud.eu/concepts/#Document">Document file</opt>
+            <opt hidden="true" key="http://id.culturecloud.eu/concepts/#Sound">Sound file</opt>
+            <opt hidden="true" key="http://id.culturecloud.eu/concepts/#Video">Video file</opt>
         </opt-list>
 
         <!--<opt-list path="/record/resources/resource/resourceType" valuePath="/record/resources/resource/resourceType">-->
