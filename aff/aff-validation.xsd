@@ -26,7 +26,7 @@
     <xs:attribute name="type" type="xs:string"/>
     <xs:attribute name="typeUri" type="xs:string"/>
     <xs:attribute name="displayType" type="xs:string"/>
-    <xs:attribute name="hubRecordId" type="xs:string"/>
+    <xs:attribute name="hubId" type="xs:string"/>
     <xs:attribute name="hubRecordUrl" type="xs:string"/>
     <xs:attribute name="delvingMediaUri" type="xs:string"/>
 
@@ -47,6 +47,7 @@
             <xs:element name="displayDataProvider" minOccurs="0" maxOccurs="1"/>
             <xs:element name="displayDataProviderCountry" minOccurs="0" maxOccurs="1"/>
             <xs:element name="displayProvider" minOccurs="0" maxOccurs="1"/>
+            <xs:element name="lastChanged" minOccurs="0" maxOccurs="1"/>
             <xs:element name="UGC" type="xs:boolean" minOccurs="0" maxOccurs="1"/>
         </xs:sequence>
         <xs:attribute ref="aff:dataProviderUri"/>
@@ -68,7 +69,7 @@
         </xs:sequence>
         <xs:attribute ref="aff:localId"/>
         <xs:attribute ref="aff:lang"/>
-        <xs:attribute ref="aff:hubRecordId"/>
+        <xs:attribute ref="aff:hubId"/>
     </xs:complexType>
 
     <!--<xs:complexType name="categoryType">-->
@@ -81,6 +82,7 @@
 
 
     <!-- Collections -->
+
     <xs:complexType name="collectionsType">
         <xs:sequence>
             <xs:element type="aff:collectionType" name="collection" minOccurs="0" maxOccurs="1"/>
@@ -89,26 +91,25 @@
 
     <xs:complexType name="collectionType">
         <xs:sequence>
-            <xs:element name="displayCollection" type="xs:string" minOccurs="0" maxOccurs="1"/>
+            <xs:element type="xs:string" name="displayCollection"/>
             <xs:element name="displayDescription" type="xs:string" minOccurs="0" maxOccurs="1"/>
-            <xs:element type="aff:isPartOfcollectionType" name="isPartOfcollection" minOccurs="0" maxOccurs="1"/>
+            <xs:element type="aff:isPartOfCollectionType" name="isPartOfCollection" xmlns:aff="http://schemas.delving.eu/aff/"/>
         </xs:sequence>
         <xs:attribute ref="aff:type"/>
         <xs:attribute ref="aff:typeUri"/>
         <xs:attribute ref="aff:localId"/>
     </xs:complexType>
 
-    <xs:complexType name="isPartOfcollectionType">
+    <xs:complexType name="isPartOfCollectionType">
         <xs:sequence>
-            <xs:element name="displayCollection" type="xs:string" minOccurs="0" maxOccurs="1"/>
+            <xs:element name="displayCollection"/>
             <xs:element name="displayDescription" type="xs:string" minOccurs="0" maxOccurs="1"/>
-            <xs:element type="aff:isPartOfcollectionType" name="isPartOfcollection" minOccurs="0" maxOccurs="1"/>
+            <xs:element type="aff:isPartOfCollectionType" name="isPartOfCollection" minOccurs="0" xmlns:aff="http://schemas.delving.eu/aff/"/>
         </xs:sequence>
         <xs:attribute ref="aff:type"/>
         <xs:attribute ref="aff:typeUri"/>
         <xs:attribute ref="aff:localId"/>
     </xs:complexType>
-
 
     <!-- Relations -->
     <xs:complexType name="relationsType">
@@ -243,7 +244,6 @@
             <xs:element type="xs:string" name="latestDate" minOccurs="0" maxOccurs="1"/>
         </xs:sequence>
     </xs:complexType>
-
 
     <!-- Resource -->
     <xs:complexType name="resourcesType">

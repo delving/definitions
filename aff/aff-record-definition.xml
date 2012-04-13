@@ -27,10 +27,9 @@
         <attr tag="providerHubUri"/>
         <attr tag="type" systemField="true"/>
         <attr tag="typeUri" systemField="true"/>
-        <attr tag="hubRecordId" systemField="true"/>
+        <attr tag="hubId" systemField="true"/>
         <attr tag="hubRecordUrl" systemField="true"/>
         <attr tag="delvingMediaUri" systemField="true"/>
-
     </attrs>
 
     <elems>
@@ -46,10 +45,11 @@
             <elem tag="displayDataProvider"/>
             <elem tag="displayDataProviderCountry"/>
             <elem tag="displayProvider"/>
+            <elem tag="lastChanged"/>
             <elem tag="UGC"/>
         </elem>
 
-        <elem tag="thing" attrs="localId, categoryUri, lang, hubRecordId" singular="true" unmapable="true">
+        <elem tag="thing" attrs="localId, lang, hubId" singular="true" unmapable="true">
             <elem tag="uri"/>
             <elem tag="displayIdentification"/>
             <elem tag="displayTitle"/>
@@ -150,17 +150,16 @@
     </facts>
 
     <opts>
-        opt
         <opt-list path="/record/relations/relation" key="@typeUri" value="displayType">
-            <opt key="http://id.culturecloud.eu/concepts/#isPartOf">Is part of</opt>
+            <opt hidden="true" key="http://id.culturecloud.eu/concepts/#isPartOf">Is part of</opt>
             <opt hidden="true" key="http://id.culturecloud.eu/concepts/#hasPart">Has part</opt>
             <opt hidden="true" key="http://id.culturecloud.eu/concepts/#sameaAs">Same as</opt>
         </opt-list>
 
         <opt-list path="/record/events/event" key="@typeUri" value="displayType">
-            <opt key="http://www.cidoc-crm.org/rdfs/E12.Production">Production</opt>
-            <opt key="http://www.cidoc-crm.org/rdfs/E65.Creation">Creation</opt>
-            <opt key="http://www.cidoc-crm.org/rdfs/E8.Acquisition">Acquisition</opt>
+            <opt hidden="true" key="http://www.cidoc-crm.org/rdfs/E12.Production">Production</opt>
+            <opt hidden="true" key="http://www.cidoc-crm.org/rdfs/E65.Creation">Creation</opt>
+            <opt hidden="true" key="http://www.cidoc-crm.org/rdfs/E8.Acquisition">Acquisition</opt>
             <opt hidden="true" key="http://www.cidoc-crm.org/rdfs/E16.Measurement">Measurement</opt>
             <opt hidden="true" key="http://www.cidoc-crm.org/rdfs/E69.Death">Death</opt>
             <opt hidden="true" key="http://www.cidoc-crm.org/rdfs/E6.Destruction">Destruction</opt>
@@ -196,12 +195,12 @@
 
 
         <opt-list path="/record/concepts/concept" key="@typeUri" value="displayType">
-            <opt key="http://id.culturecloud.eu/concepts/#workType">Work type</opt>
-            <opt key="http://id.culturecloud.eu/concepts/#objectName">Object name/keyword</opt>
-            <opt key="http://id.culturecloud.eu/concepts/#classification">Classification</opt>
-            <opt key="crm:P129B">Subject</opt>
-            <opt key="crm:E57">Material</opt>
-            <opt key="crm:P32F">Technique</opt>
+            <opt hidden="true" key="http://id.culturecloud.eu/concepts/#workType">Work type</opt>
+            <opt hidden="true" key="http://id.culturecloud.eu/concepts/#objectName">Object name/keyword</opt>
+            <opt hidden="true" key="http://id.culturecloud.eu/concepts/#classification">Classification</opt>
+            <opt hidden="true" key="crm:P129B">Subject</opt>
+            <opt hidden="true" key="crm:E57">Material</opt>
+            <opt hidden="true" key="crm:P32F">Technique</opt>
         </opt-list>
 
         <opt-list path="/record/resources/resource" key="@typeUri" value="displayType">
