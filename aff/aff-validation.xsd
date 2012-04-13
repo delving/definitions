@@ -9,8 +9,8 @@
 
     <xs:attribute name="localId" type="xs:string"/>
     <xs:attribute name="categoryUri" type="xs:string"/>
-    <xs:attribute name="sourceUri" type="xs:string"/>
-    <xs:attribute name="source" type="xs:string"/>
+    <xs:attribute name="schema" type="xs:string"/>
+    <xs:attribute name="schemaUri" type="xs:string"/>
     <xs:attribute name="roleInEventUri" type="xs:string"/>
     <xs:attribute name="isPartOfLocalId" type="xs:string"/>
     <xs:attribute name="collectionUri" type="xs:string"/>
@@ -48,6 +48,7 @@
             <xs:element name="displayDataProviderCountry" minOccurs="0" maxOccurs="1"/>
             <xs:element name="displayProvider" minOccurs="0" maxOccurs="1"/>
             <xs:element name="lastChanged" minOccurs="0" maxOccurs="1"/>
+            <xs:element name="defaultLang" minOccurs="0" maxOccurs="1"/>
             <xs:element name="UGC" type="xs:boolean" minOccurs="0" maxOccurs="1"/>
         </xs:sequence>
         <xs:attribute ref="aff:dataProviderUri"/>
@@ -98,6 +99,7 @@
         <xs:attribute ref="aff:type"/>
         <xs:attribute ref="aff:typeUri"/>
         <xs:attribute ref="aff:localId"/>
+        <xs:attribute ref="aff:lang"/>
     </xs:complexType>
 
     <xs:complexType name="isPartOfCollectionType">
@@ -125,6 +127,7 @@
         <xs:attribute ref="aff:type"/>
         <xs:attribute ref="aff:typeUri"/>
         <xs:attribute ref="aff:localId"/>
+        <xs:attribute ref="aff:lang"/>
         <xs:attribute ref="aff:uri"/>
         <xs:attribute ref="aff:relationType"/>
     </xs:complexType>
@@ -143,8 +146,9 @@
         </xs:sequence>
         <xs:attribute ref="aff:type"/>
         <xs:attribute ref="aff:typeUri"/>
-        <xs:attribute ref="aff:localId" use="optional"/>
-        <xs:attribute ref="aff:uri" use="optional"/>
+        <xs:attribute ref="aff:localId"/>
+        <xs:attribute ref="aff:lang"/>
+        <xs:attribute ref="aff:uri"/>
     </xs:complexType>
 
 
@@ -167,6 +171,7 @@
         </xs:sequence>
         <xs:attribute ref="aff:type"/>
         <xs:attribute ref="aff:typeUri"/>
+        <xs:attribute ref="aff:lang"/>
     </xs:complexType>
 
     <!-- eventActor -->
@@ -182,13 +187,14 @@
         <xs:attribute ref="aff:typeUri"/>
         <xs:attribute ref="aff:roleInEventUri"/>
         <xs:attribute ref="aff:localId"/>
-        <xs:attribute ref="aff:source"/>
-        <xs:attribute ref="aff:sourceUri"/>
+        <xs:attribute ref="aff:schema"/>
+        <xs:attribute ref="aff:schemaUri"/>
     </xs:complexType>
 
     <xs:complexType name="relatedEventType">
         <xs:sequence>
             <xs:element name="displayDate" type="xs:string" minOccurs="0"/>
+            <xs:element name="displayEvent" type="xs:string" minOccurs="0"/>
             <xs:element name="displayDescription" type="xs:string" minOccurs="0"/>
             <xs:element type="aff:relatedEventPlaceType" name="place" minOccurs="0"/>
         </xs:sequence>
@@ -205,8 +211,8 @@
         <xs:attribute ref="aff:type"/>
         <xs:attribute ref="aff:typeUri"/>
         <xs:attribute ref="aff:localId"/>
-        <xs:attribute ref="aff:source"/>
-        <xs:attribute ref="aff:sourceUri"/>
+        <xs:attribute ref="aff:schema"/>
+        <xs:attribute ref="aff:schemaUri"/>
     </xs:complexType>
 
     <!-- eventPlace -->
@@ -223,8 +229,8 @@
         <xs:attribute ref="aff:typeUri"/>
         <xs:attribute ref="aff:roleInEventUri"/>
         <xs:attribute ref="aff:localId"/>
-        <xs:attribute ref="aff:source"/>
-        <xs:attribute ref="aff:sourceUri"/>
+        <xs:attribute ref="aff:schema"/>
+        <xs:attribute ref="aff:schemaUri"/>
     </xs:complexType>
 
     <xs:complexType name="partOfPlaceType">
@@ -259,6 +265,7 @@
         </xs:sequence>
         <xs:attribute ref="aff:type"/>
         <xs:attribute ref="aff:typeUri"/>
+        <xs:attribute ref="aff:lang"/>
         <xs:attribute ref="aff:MIME"/>
         <xs:attribute ref="aff:rightsUri"/>
     </xs:complexType>

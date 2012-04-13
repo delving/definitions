@@ -11,8 +11,8 @@
     <attrs>
         <attr tag="localId"/>
         <attr tag="categoryUri"/>
-        <attr tag="sourceUri"/>
-        <attr tag="source"/>
+        <attr tag="schema"/>
+        <attr tag="schemaUri"/>
         <attr tag="roleInEventUri"/>
         <attr tag="isPartOfLocalId"/>
         <attr tag="collectionUri"/>
@@ -46,10 +46,11 @@
             <elem tag="displayDataProviderCountry"/>
             <elem tag="displayProvider"/>
             <elem tag="lastChanged"/>
+            <elem tag="defaultLang"/>
             <elem tag="UGC"/>
         </elem>
 
-        <elem tag="thing" attrs="localId, lang, hubId" singular="true" unmapable="true">
+        <elem tag="thing" attrs="localId, lang, hubId" unmapable="true">
             <elem tag="uri"/>
             <elem tag="displayIdentification"/>
             <elem tag="displayTitle"/>
@@ -61,7 +62,7 @@
         </elem>
 
         <elem tag="collections" singular="true" unmapable="true">
-            <elem tag="collection" attrs="type, typeUri, localId" unmapable="true">
+            <elem tag="collection" attrs="type, typeUri, lang, localId" unmapable="true">
                 <elem tag="displayCollection"/>
                 <elem tag="displayDescription"/>
                 <elem tag="isPartOfCollection" attrs="type, typeUri, localId" unmapable="true">
@@ -84,19 +85,19 @@
         </elem>
 
         <elem tag="concepts" singular="true" unmapable="true">
-            <elem tag="concept" attrs="type, typeUri, localId, source, sourceUri">
+            <elem tag="concept" attrs="type, typeUri, localId, lang, schema, schemaUri">
                 <elem tag="displayConcept"/>
             </elem>
         </elem>
 
         <elem tag="events" singular="true" unmapable="true">
-            <elem tag="event" elems="date" attrs="type, typeUri">
+            <elem tag="event" elems="date" attrs="type, typeUri, lang">
                 <elem tag="displayDate"/>
                 <elem tag="displayEvent"/>
                 <elem tag="displayMethod"/>
                 <elem tag="displayDescription"/>
 
-                <elem tag="eventActor" attrs="type, typeUri, roleInEventUri, localId, source, sourceUri">
+                <elem tag="eventActor" attrs="type, typeUri, roleInEventUri, localId, schema, schemaUri">
                     <elem tag="displayRoleInEvent"/>
                     <elem tag="displayActor"/>
                     <elem tag="displayNationality"/>
@@ -104,9 +105,10 @@
 
                     <elem tag="relatedEvent" attrs="type, typeUri">
                         <elem tag="displayDate"/>
+                        <elem tag="displayEvent"/>
                         <elem tag="displayDescription"/>
 
-                        <elem tag="relatedEventPlace" attrs="type, typeUri,localId, source, sourceUri" unmapable="true">
+                        <elem tag="relatedEventPlace" attrs="type, typeUri, localId, schema, schemaUri" unmapable="true">
                             <elem tag="displayPlace"/>
                             <elem tag="lat"/>
                             <elem tag="long"/>
@@ -114,7 +116,7 @@
                     </elem>
                 </elem>
 
-                <elem tag="eventPlace" attrs="type, typeUri,roleInEventUri, localId, source, sourceUri" >
+                <elem tag="eventPlace" attrs="type, typeUri, roleInEventUri, localId, schema, schemaUri" >
                     <elem tag="displayRoleInEvent"/>
                     <elem tag="displayPlace"/>
                     <elem tag="displayDescription"/>
@@ -131,7 +133,7 @@
         </elem>
 
         <elem tag="resources" singular="true" unmapable="true">
-            <elem tag="resource" attrs="type, typeUri, MIME, rightsUri">
+            <elem tag="resource" attrs="type, typeUri,  lang, MIME, rightsUri">
                 <elem tag="resourceUrl"/>
                 <elem tag="displayRights"/>
             </elem>
