@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema attributeFormDefault="unqualified"
+           elementFormDefault="qualified"
+           xmlns:itin="http://schemas.delving.eu/itin/"
+           targetNamespace="http://schemas.delving.eu/itin/"
+           xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+    <xs:element name="record" type="itin:recordType"/>
+
+    <xs:complexType name="recordType">
+        <xs:sequence>
+            <xs:element type="itin:adminType" name="admin" minOccurs="1" maxOccurs="1"/>
+            <xs:element name="bulle" minOccurs="0" maxOccurs="1"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="adminType">
+        <xs:sequence>
+            <xs:element name="displayDataProvider" minOccurs="0" maxOccurs="1"/>
+            <xs:element name="displayDataProviderCountry" minOccurs="0" maxOccurs="1"/>
+            <xs:element name="displayProvider" minOccurs="0" maxOccurs="1"/>
+        </xs:sequence>
+    </xs:complexType>
+
+
+
+</xs:schema>

@@ -1,0 +1,388 @@
+<?xml version="1.0"?>
+<record-definition prefix="itin" flat="false">
+
+    <!--<version>1.0</version>-->
+
+    <namespaces>
+        <namespace prefix="itin" uri="http://schemas.delving.eu/itin/"
+                   schema="http://schemas.delving.eu/aff/aff_1.0.xsd"/>
+    </namespaces>
+
+    <attrs>
+
+        <!-- reference -->
+        <attr tag="name"/>
+        <attr tag="type"/>
+        <attr tag="entitytype"/>
+        <attr tag="bundle"/>
+        <attr tag="ide"/>
+        <attr tag="linkType"/>
+        <attr tag="pathalias"/>
+        <attr tag="path"/>
+
+    </attrs>
+
+    <elems>
+        <elem tag="language"/>
+        <elem tag="title"/>
+        <elem tag="taglines"/>
+        <elem tag="summary"/>
+        <elem tag="body"/>
+    </elems>
+
+    <root tag="record">
+
+
+        <elem tag="admin" singular="true" unmapable="true">
+            <elem tag="displayDataProvider"/>
+            <elem tag="displayDataProviderCountry"/>
+            <elem tag="displayProvider"/>
+        </elem>
+
+        <elem tag="bulle"/>
+
+        <elem tag="object" elems="language, title, taglines, summary, body">
+
+            <elem tag="organisation"/>
+            <elem tag="identifier"/>
+            <elem tag="dc_publisher"/>
+            <elem tag="object_type"/>
+            <elem tag="scene"/>
+
+            <elem tag="onderwerp">
+                <elem tag="ref_pvb"/>
+                <elem tag="ref_persons"/>
+                <elem tag="history_events"/>
+                <elem tag="media_subject"/>
+            </elem>
+
+            <elem tag="metadata">
+                <elem tag="creator"/>
+                <elem tag="creation_date"/>
+                <elem tag="material"/>
+                <elem tag="size"/>
+            </elem>
+            <elem tag="remarks"/>
+            <elem tag="copyright"/>
+            <elem tag="sources"/>
+            <elem tag="path"/>
+        </elem>
+
+        <elem tag="history_event" elems="language, title, taglines, summary, body">
+
+            <elem tag="history_date"/>
+            <elem tag="date"/>
+            <elem tag="date_year"/>
+            <elem tag="date_circa"/>
+            <elem tag="url"/>
+            <elem tag="contact"/>
+            <elem tag="taxonomy">
+                <elem tag="category"/>
+                <elem tag="subject"/>
+                <elem tag="tags"/>
+                <elem tag="sections"/>
+            </elem>
+            <elem tag="sources"/>
+            <elem tag="media"/>
+            <elem tag="path"/>
+            <elem tag="ref_other"/>
+
+        </elem>
+
+        <elem tag="history_period" elems="language, title, taglines, summary, body">
+
+            <elem tag="experience"/>
+            <elem tag="sources"/>
+            <elem tag="period_date"/>
+            <elem tag="taxonomy">
+                <elem tag="category"/>
+                <elem tag="subject"/>
+                <elem tag="tags"/>
+                <elem tag="sections"/>
+            </elem>
+            <elem tag="media"/>
+            <elem tag="path"/>
+        </elem>
+
+        <elem tag="history_person" elems="language, title, taglines, summary, body">
+
+            <elem tag="life">
+                <elem tag="dates"/> <!-- birth, death dates-->
+                <elem tag="life"/>  <!-- birth, death year-->
+                <elem tag="date_circa"/>
+                <elem tag="birth_place"/>
+                <elem tag="death_place"/>
+                <elem tag="residence"/>
+            </elem>
+            <elem tag="function"/>
+            <elem tag="gender"/>
+            <elem tag="taxonomy">
+                <elem tag="category"/>
+                <elem tag="subject"/>
+                <elem tag="tags"/>
+                <elem tag="sections"/>
+            </elem>
+            <elem tag="person_category"/>
+            <elem tag="media"/>
+            <elem tag="path"/>
+
+        </elem>
+
+        <elem tag="plaats" elems="language, title, taglines, summary, body">
+
+            <elem tag="taxonomy">
+                <elem tag="subject"/>
+                <elem tag="tags"/>
+                <elem tag="user_sections"/>
+            </elem>
+            <elem tag="wapen">
+                <elem tag="wapen"/>
+                <elem tag="wapen_toelichting"/>
+            </elem>
+            <elem tag="media"/>
+            <elem tag="path"/>
+        </elem>
+
+        <elem tag="pvb_story" elems="language, title, taglines, summary, body">
+
+            <elem tag="story_type"/>
+            <elem tag="story_year"/>
+            <elem tag="date"/>
+            <elem tag="date_year"/>
+            <elem tag="date_circa"/>
+            <elem tag="ref_pvb"/>
+
+            <elem tag="experience">
+                <elem tag="exp_why"/>
+                <elem tag="experience"/>
+            </elem>
+            <elem tag="sources"/>
+            <elem tag="taxonomy">
+                <elem tag="category"/>
+                <elem tag="subject"/>
+                <elem tag="tags"/>
+                <elem tag="sections"/>
+            </elem>
+            <elem tag="attachments"/>
+            <elem tag="media"/>
+            <elem tag="path"/>
+        </elem>
+
+        <elem tag="reference" elems="language, title">
+
+            <elem tag="source"/>
+            <elem tag="reference_type"/>
+            <elem tag="author"/>
+            <elem tag="pub_location"/>
+            <elem tag="pub_year"/>
+            <elem tag="book">
+                <elem tag="publisher"/>
+            </elem>
+            <elem tag="magazine"/> <!-- group -->
+            <elem tag="book_magazine">
+                <elem tag="isbn"/>
+                <elem tag="issn"/>
+                <elem tag="magazine_name"/>
+                <elem tag="magazine_issue"/>
+            </elem>
+            <elem tag="pages"/>
+            <elem tag="page_numbers"/>
+            <elem tag="website">
+                <elem tag="organisation_name"/>
+                <elem tag="url"/>
+            </elem>
+            <elem tag="related_pvb"/>
+            <elem tag="media"/>
+            <elem tag="path"/>
+        </elem>
+
+        <elem tag="page" elems="language, title, taglines, summary, body">
+
+            <elem tag="media"/>
+            <elem tag="path"/>
+
+        </elem>
+
+        <elem tag="accommodation" elems="language, title, taglines, summary, body">
+
+            <elem tag="accommodation_type"/>
+            <elem tag="classification"/>
+            <elem tag="taxonomy">
+                <elem tag="subject"/>
+                <elem tag="tags"/>
+                <elem tag="sections"/>
+            </elem>
+            <elem tag="contact">
+                <elem tag="phone"/>
+                <elem tag="email"/>
+                <elem tag="url"/>
+            </elem>
+            <elem tag="open">
+                <elem tag="open_days"/>
+                <elem tag="open_description"/>
+            </elem>
+            <elem tag="public_transport"/>
+            <elem tag="sources"/>
+            <elem tag="media"/>
+            <elem tag="path"/>
+            <elem tag="amazon"/>
+
+        </elem>
+
+        <elem tag="event" elems="language, title, taglines, summary, body">
+
+            <elem tag="event_type"/>
+            <elem tag="event_date"/>
+            <elem tag="date"/>
+            <elem tag="date_year"/>
+            <elem tag="date_circa"/>
+            <elem tag="url"/>
+            <elem tag="contact"/>
+            <elem tag="taxonomy">
+                <elem tag="subject"/>
+                <elem tag="tags"/>
+                <elem tag="sections"/>
+            </elem>
+            <elem tag="sources"/>
+            <elem tag="media"/>
+            <elem tag="path"/>
+
+        </elem>
+
+        <elem tag="auteur" elems="language, title, taglines, summary, body">
+
+            <elem tag="phone"/>
+            <elem tag="email"/>
+            <elem tag="twitter"/>
+            <elem tag="facebook"/>
+            <elem tag="hyves"/>
+            <elem tag="linkedin"/>
+            <elem tag="url"/>
+            <elem tag="taxonomy">
+                <elem tag="subject"/>
+                <elem tag="tags"/>
+                <elem tag="sections"/>
+            </elem>
+            <elem tag="media"/>
+            <elem tag="path"/>
+
+        </elem>
+
+        <elem tag="organisatie" elems="language, title, taglines, summary, body">
+
+            <elem tag="taxonomy">
+                <elem tag="subject"/>
+                <elem tag="tags"/>
+                <elem tag="sections"/>
+            </elem>
+            <elem tag="media"/>
+            <elem tag="path"/>
+
+        </elem>
+
+        <elem tag="pvb" elems="language, title">
+
+            <elem tag="description" elems="taglines, summary, body">
+                <elem tag="year"/>
+                <elem tag="date"/>
+                <elem tag="date_year"/>
+                <elem tag="date_circa"/>
+                <elem tag="importance"/>
+                <elem tag="poi_type"/>
+            </elem>
+            <elem tag="additional"/>
+            <elem tag="poi_subtype"/>
+            <elem tag="factual_info">
+                <elem tag=""/>
+                <elem tag=""/>
+                <elem tag=""/>
+                <elem tag=""/>
+            </elem>
+            <elem tag="use"/>
+            <elem tag="suggestions"/>
+            <elem tag="info">
+                <elem tag="directions"/>
+                <elem tag="public_transportation"/>
+                <elem tag="phone"/>
+                <elem tag="url"/>
+                <elem tag="email"/>
+                <elem tag="twitter"/>
+                <elem tag="facebook"/>
+                <elem tag="hyves"/>
+            </elem>
+            <elem tag="surroundings">
+                <elem tag="surroundings"/>
+            </elem>
+            <elem tag="visitor_info">
+                <elem tag="public_access"/>
+                <elem tag="days_open"/>
+                <elem tag="visitor_info"/>
+                <elem tag="fee"/>
+                <elem tag="fees"/>
+                <elem tag="cjp"/>
+                <elem tag="children_friendly"/>
+                <elem tag="facilities">
+                    <elem tag="facilities_shop"/>
+                    <elem tag="facilities_horeca"/>
+                    <elem tag="facilities_toilet"/>
+                    <elem tag="facilities_parking"/>
+                    <elem tag="facilities_wheelchair"/>
+                    <elem tag="wifi"/>
+                    <elem tag="facilities_other"/>
+                </elem>
+            </elem>
+            <elem tag="taxonomy">
+                <elem tag="category"/>
+                <elem tag="subject"/>
+                <elem tag="tags"/>
+                <elem tag="sections"/>
+            </elem>
+            <elem tag="history">
+                <elem tag="history"/>
+                <elem tag="use"/>
+            </elem>
+            <elem tag="amazon"/>
+            <elem tag="ref_collection"/>
+            <elem tag="sources"/>
+            <elem tag="attachments"/>
+            <elem tag="media"/>
+            <elem tag="path"/>
+        </elem>
+
+        <elem tag="route" elems="language, title, taglines, summary, body">
+
+            <elem tag="routeyou_id"/>
+            <elem tag="route_type"/>
+            <elem tag="related_pvb"/>
+            <elem tag="taxonomy">
+                <elem tag="subject"/>
+                <elem tag="tags"/>
+                <elem tag="sections"/>
+            </elem>
+            <elem tag="media"/>
+            <elem tag="path"/>
+
+        </elem>
+
+ </root>
+
+
+    <opts>
+        <opt-list path="/record/bulle" key="@typeUri" value="@type" displayName="Related Events">
+            <opt key="http://www.cidoc-crm.org/rdfs/E67.Birth">Birth</opt>
+            <opt key="http://www.cidoc-crm.org/rdfs/E69.Death">Death</opt>
+        </opt-list>
+
+    </opts>
+
+    <facts>
+        <fact-ref path="/record/admin/displayDataProvider" name="dataProvider"/>
+        <fact-ref path="/record/admin/displayDataProviderCountry" name="country"/>
+        <fact-ref path="/record/admin/displayProvider" name="provider"/>
+        <!--<fact-ref path="/record/admin/@dataProviderUri" name="provider"/>-->
+        <!--<fact-ref path="/record/admin/@providerUri" name="dataProviderUri"/>-->
+        <!--<fact-ref path="/record/admin/@providerHubUri" name="providerHubUri"/>-->
+        <!--<fact-ref path="/record/admin/displayProviderHub" name="dataProvider"/>-->
+    </facts>
+
+</record-definition>
