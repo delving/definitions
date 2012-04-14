@@ -10,7 +10,6 @@
     <xs:complexType name="recordType">
         <xs:sequence>
             <xs:element type="itin:adminType" name="admin" minOccurs="1" maxOccurs="1"/>
-            <xs:element name="bulle" minOccurs="0" maxOccurs="1"/>
         </xs:sequence>
     </xs:complexType>
 

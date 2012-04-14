@@ -9,16 +9,8 @@
     </namespaces>
 
     <attrs>
-
-        <!-- reference -->
-        <attr tag="name"/>
         <attr tag="type"/>
-        <attr tag="entitytype"/>
-        <attr tag="bundle"/>
-        <attr tag="ide"/>
-        <attr tag="linkType"/>
-        <attr tag="pathalias"/>
-        <attr tag="path"/>
+        <attr tag="typeName"/>
 
     </attrs>
 
@@ -32,30 +24,30 @@
 
     <root tag="record">
 
-
         <elem tag="admin" singular="true" unmapable="true">
             <elem tag="displayDataProvider"/>
             <elem tag="displayDataProviderCountry"/>
             <elem tag="displayProvider"/>
         </elem>
 
-        <elem tag="bulle"/>
+        <elem tag="object" attrs="type, typeName">
 
-        <elem tag="object" elems="language, title, taglines, summary, body">
-
+            <elem tag="language"/>
+            <elem tag="title"/>
+            <elem tag="taglines"/>
+            <elem tag="summary"/>
+            <elem tag="body"/>
             <elem tag="organisation"/>
             <elem tag="identifier"/>
             <elem tag="dc_publisher"/>
             <elem tag="object_type"/>
             <elem tag="scene"/>
-
             <elem tag="onderwerp">
                 <elem tag="ref_pvb"/>
                 <elem tag="ref_persons"/>
                 <elem tag="history_events"/>
                 <elem tag="media_subject"/>
             </elem>
-
             <elem tag="metadata">
                 <elem tag="creator"/>
                 <elem tag="creation_date"/>
@@ -68,8 +60,13 @@
             <elem tag="path"/>
         </elem>
 
-        <elem tag="history_event" elems="language, title, taglines, summary, body">
+        <elem tag="history_event">
 
+            <elem tag="language"/>
+            <elem tag="title"/>
+            <elem tag="taglines"/>
+            <elem tag="summary"/>
+            <elem tag="body"/>
             <elem tag="history_date"/>
             <elem tag="date"/>
             <elem tag="date_year"/>
@@ -89,8 +86,13 @@
 
         </elem>
 
-        <elem tag="history_period" elems="language, title, taglines, summary, body">
+        <elem tag="history_period">
 
+            <elem tag="language"/>
+            <elem tag="title"/>
+            <elem tag="taglines"/>
+            <elem tag="summary"/>
+            <elem tag="body"/>
             <elem tag="experience"/>
             <elem tag="sources"/>
             <elem tag="period_date"/>
@@ -104,8 +106,13 @@
             <elem tag="path"/>
         </elem>
 
-        <elem tag="history_person" elems="language, title, taglines, summary, body">
+        <elem tag="history_person">
 
+            <elem tag="language"/>
+            <elem tag="title"/>
+            <elem tag="taglines"/>
+            <elem tag="summary"/>
+            <elem tag="body"/>
             <elem tag="life">
                 <elem tag="dates"/> <!-- birth, death dates-->
                 <elem tag="life"/>  <!-- birth, death year-->
@@ -128,8 +135,13 @@
 
         </elem>
 
-        <elem tag="plaats" elems="language, title, taglines, summary, body">
+        <elem tag="plaats">
 
+            <elem tag="language"/>
+            <elem tag="title"/>
+            <elem tag="taglines"/>
+            <elem tag="summary"/>
+            <elem tag="body"/>
             <elem tag="taxonomy">
                 <elem tag="subject"/>
                 <elem tag="tags"/>
@@ -143,8 +155,13 @@
             <elem tag="path"/>
         </elem>
 
-        <elem tag="pvb_story" elems="language, title, taglines, summary, body">
+        <elem tag="pvb_story">
 
+            <elem tag="language"/>
+            <elem tag="title"/>
+            <elem tag="taglines"/>
+            <elem tag="summary"/>
+            <elem tag="body"/>
             <elem tag="story_type"/>
             <elem tag="story_year"/>
             <elem tag="date"/>
@@ -168,8 +185,10 @@
             <elem tag="path"/>
         </elem>
 
-        <elem tag="reference" elems="language, title">
+        <elem tag="reference">
 
+            <elem tag="language"/>
+            <elem tag="title"/>
             <elem tag="source"/>
             <elem tag="reference_type"/>
             <elem tag="author"/>
@@ -196,15 +215,25 @@
             <elem tag="path"/>
         </elem>
 
-        <elem tag="page" elems="language, title, taglines, summary, body">
+        <elem tag="page">
 
+            <elem tag="language"/>
+            <elem tag="title"/>
+            <elem tag="taglines"/>
+            <elem tag="summary"/>
+            <elem tag="body"/>
             <elem tag="media"/>
             <elem tag="path"/>
 
         </elem>
 
-        <elem tag="accommodation" elems="language, title, taglines, summary, body">
+        <elem tag="accommodation">
 
+            <elem tag="language"/>
+            <elem tag="title"/>
+            <elem tag="taglines"/>
+            <elem tag="summary"/>
+            <elem tag="body"/>
             <elem tag="accommodation_type"/>
             <elem tag="classification"/>
             <elem tag="taxonomy">
@@ -229,8 +258,13 @@
 
         </elem>
 
-        <elem tag="event" elems="language, title, taglines, summary, body">
+        <elem tag="event">
 
+            <elem tag="language"/>
+            <elem tag="title"/>
+            <elem tag="taglines"/>
+            <elem tag="summary"/>
+            <elem tag="body"/>
             <elem tag="event_type"/>
             <elem tag="event_date"/>
             <elem tag="date"/>
@@ -249,8 +283,13 @@
 
         </elem>
 
-        <elem tag="auteur" elems="language, title, taglines, summary, body">
+        <elem tag="auteur">
 
+            <elem tag="language"/>
+            <elem tag="title"/>
+            <elem tag="taglines"/>
+            <elem tag="summary"/>
+            <elem tag="body"/>
             <elem tag="phone"/>
             <elem tag="email"/>
             <elem tag="twitter"/>
@@ -268,8 +307,13 @@
 
         </elem>
 
-        <elem tag="organisatie" elems="language, title, taglines, summary, body">
+        <elem tag="organisatie">
 
+            <elem tag="language"/>
+            <elem tag="title"/>
+            <elem tag="taglines"/>
+            <elem tag="summary"/>
+            <elem tag="body"/>
             <elem tag="taxonomy">
                 <elem tag="subject"/>
                 <elem tag="tags"/>
@@ -280,8 +324,10 @@
 
         </elem>
 
-        <elem tag="pvb" elems="language, title">
+        <elem tag="pvb">
 
+            <elem tag="language"/>
+            <elem tag="title"/>
             <elem tag="description" elems="taglines, summary, body">
                 <elem tag="year"/>
                 <elem tag="date"/>
@@ -293,10 +339,10 @@
             <elem tag="additional"/>
             <elem tag="poi_subtype"/>
             <elem tag="factual_info">
-                <elem tag=""/>
-                <elem tag=""/>
-                <elem tag=""/>
-                <elem tag=""/>
+                <elem tag="poi_friends"/>
+                <elem tag="poi_friends_of"/>
+                <elem tag="poi_society_info"/>
+                <elem tag="poi_society"/>
             </elem>
             <elem tag="use"/>
             <elem tag="suggestions"/>
@@ -349,8 +395,13 @@
             <elem tag="path"/>
         </elem>
 
-        <elem tag="route" elems="language, title, taglines, summary, body">
+        <elem tag="route">
 
+            <elem tag="language"/>
+            <elem tag="title"/>
+            <elem tag="taglines"/>
+            <elem tag="summary"/>
+            <elem tag="body"/>
             <elem tag="routeyou_id"/>
             <elem tag="route_type"/>
             <elem tag="related_pvb"/>
@@ -368,11 +419,62 @@
 
 
     <opts>
-        <opt-list path="/record/bulle" key="@typeUri" value="@type" displayName="Related Events">
-            <opt key="http://www.cidoc-crm.org/rdfs/E67.Birth">Birth</opt>
-            <opt key="http://www.cidoc-crm.org/rdfs/E69.Death">Death</opt>
+
+        <opt-list path="/record/object" key="@type" value="@typeName">
+            <opt hidden="true" key="object">Object</opt>
         </opt-list>
 
+        <opt-list path="/record/history_event" key="@typeUri" value="@type">
+            <opt hidden="true" key="object"></opt>
+        </opt-list>
+
+        <opt-list path="/record/history_period" key="@typeUri" value="@type">
+            <opt hidden="true" key="object"></opt>
+        </opt-list>
+
+        <opt-list path="/record/history_person" key="@typeUri" value="@type">
+            <opt hidden="true" key="object"></opt>
+        </opt-list>
+
+        <opt-list path="/record/plaats" key="@typeUri" value="@type">
+            <opt hidden="true" key="object"></opt>
+        </opt-list>
+
+        <opt-list path="/record/pvb_story" key="@typeUri" value="@type">
+            <opt hidden="true" key="object"></opt>
+        </opt-list>
+
+        <opt-list path="/record/reference" key="@typeUri" value="@type">
+            <opt hidden="true" key="object"></opt>
+        </opt-list>
+
+        <opt-list path="/record/page" key="@typeUri" value="@type">
+            <opt hidden="true" key="object"></opt>
+        </opt-list>
+
+        <opt-list path="/record/accommodation" key="@typeUri" value="@type">
+            <opt hidden="true" key="object"></opt>
+        </opt-list>
+
+        <opt-list path="/record/event" key="@typeUri" value="@type">
+            <opt hidden="true" key="object"></opt>
+        </opt-list>
+
+        <opt-list path="/record/auteur" key="@typeUri" value="@type">
+            <opt hidden="true" key="object"></opt>
+        </opt-list>
+
+        <opt-list path="/record/organisatie" key="@typeUri" value="@type">
+            <opt hidden="true" key="object"></opt>
+        </opt-list>
+
+        <opt-list path="/record/pvb" key="@typeUri" value="@type">
+            <opt hidden="true" key="object"></opt>
+        </opt-list>
+
+        <opt-list path="/record/route" key="@typeUri" value="@type">
+            <opt hidden="true" key="object"></opt>
+        </opt-list>
     </opts>
 
     <facts>
