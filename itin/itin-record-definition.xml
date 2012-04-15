@@ -9,17 +9,74 @@
     </namespaces>
 
     <attrs>
-        <attr tag="type"/>
-        <attr tag="typeName"/>
+        <attr tag="organizationType">
+            <options>
+                <string>Onbekend / n.v.t.</string>
+                <string>Onderwijsinstelling</string>
+                <string>Overheidsinstelling</string>
+                <string>Overig</string>
+                <string>Toeristisch commercieel</string>
+                <string>Toeristisch publiek</string>
+                <string>Vereniging</string>
+                <string>Weborganisaties</string>
+            </options>
+        </attr>
+
+        <attr tag="accommodation_type">
+            <options>
+                <string>café</string>
+                <string>hotel</string>
+                <string>restaurant</string>
+                <string>overig</string>
+            </options>
+        </attr>
 
     </attrs>
 
     <elems>
-        <elem tag="language"/>
-        <elem tag="title"/>
-        <elem tag="taglines"/>
-        <elem tag="summary"/>
-        <elem tag="body"/>
+
+        <elem tag="itinNode" elems="title, language, taglines, summary, body, media, path"/>
+
+            <elem tag="title"/>
+            <elem tag="language"/>
+            <elem tag="taglines"/>
+            <elem tag="summary"/>
+            <elem tag="body"/>
+            <elem tag="media"/>
+            <elem tag="path"/>
+
+        <elem tag="open" elems="open_days, open_description"/>
+            <elem tag="open_days"/>
+            <elem tag="open_description"/>
+
+
+        <elem tag="taxonomy" elems="category, subject, tags, sections"/>
+
+            <elem tag="category"/>
+            <elem tag="subject"/>
+            <elem tag="tags"/>
+            <elem tag="sections"/>
+
+        <elem tag="address" elems="streetAddress, zipCode, place, phone, email, url"/>
+
+        <elem tag="contact" elems="role, name, streetAddress, zipCode, place, phone, email, url"/>
+
+            <elem tag="role"/>
+            <elem tag="name"/>
+            <elem tag="streetAddress"/>
+            <elem tag="zipCode"/>
+            <elem tag="place"/>
+            <elem tag="phone"/>
+            <elem tag="email"/>
+            <elem tag="url"/>
+
+        <elem tag="geo" elems="geonamesUri, place, long, lat"/>
+            <elem tag="geonamesUri"/>
+            <elem tag="place"/>
+            <elem tag="long"/>
+            <elem tag="lat"/>
+
+
     </elems>
 
     <root tag="record">
@@ -30,301 +87,31 @@
             <elem tag="displayProvider"/>
         </elem>
 
-        <elem tag="object" attrs="type, typeName">
 
-            <elem tag="language"/>
-            <elem tag="title"/>
-            <elem tag="taglines"/>
-            <elem tag="summary"/>
-            <elem tag="body"/>
-            <elem tag="organisation"/>
-            <elem tag="identifier"/>
-            <elem tag="dc_publisher"/>
-            <elem tag="object_type"/>
-            <elem tag="scene"/>
-            <elem tag="onderwerp">
-                <elem tag="ref_pvb"/>
-                <elem tag="ref_persons"/>
-                <elem tag="history_events"/>
-                <elem tag="media_subject"/>
-            </elem>
-            <elem tag="metadata">
-                <elem tag="creator"/>
-                <elem tag="creation_date"/>
-                <elem tag="material"/>
-                <elem tag="size"/>
-            </elem>
-            <elem tag="remarks"/>
-            <elem tag="copyright"/>
-            <elem tag="sources"/>
-            <elem tag="path"/>
-        </elem>
+        <elem tag="organization" attrs="organizationType" elems="itinNode, open, address, contact, geo, taxonomy">
 
-        <elem tag="history_event">
-
-            <elem tag="language"/>
-            <elem tag="title"/>
-            <elem tag="taglines"/>
-            <elem tag="summary"/>
-            <elem tag="body"/>
-            <elem tag="history_date"/>
-            <elem tag="date"/>
-            <elem tag="date_year"/>
-            <elem tag="date_circa"/>
-            <elem tag="url"/>
-            <elem tag="contact"/>
-            <elem tag="taxonomy">
-                <elem tag="category"/>
-                <elem tag="subject"/>
-                <elem tag="tags"/>
-                <elem tag="sections"/>
-            </elem>
-            <elem tag="sources"/>
-            <elem tag="media"/>
-            <elem tag="path"/>
-            <elem tag="ref_other"/>
 
         </elem>
 
-        <elem tag="history_period">
+        <elem tag="place" elems="itinNode, geo, taxonomy, media, path">
 
-            <elem tag="language"/>
-            <elem tag="title"/>
-            <elem tag="taglines"/>
-            <elem tag="summary"/>
-            <elem tag="body"/>
-            <elem tag="experience"/>
-            <elem tag="sources"/>
-            <elem tag="period_date"/>
-            <elem tag="taxonomy">
-                <elem tag="category"/>
-                <elem tag="subject"/>
-                <elem tag="tags"/>
-                <elem tag="sections"/>
-            </elem>
-            <elem tag="media"/>
-            <elem tag="path"/>
-        </elem>
-
-        <elem tag="history_person">
-
-            <elem tag="language"/>
-            <elem tag="title"/>
-            <elem tag="taglines"/>
-            <elem tag="summary"/>
-            <elem tag="body"/>
-            <elem tag="life">
-                <elem tag="dates"/> <!-- birth, death dates-->
-                <elem tag="life"/>  <!-- birth, death year-->
-                <elem tag="date_circa"/>
-                <elem tag="birth_place"/>
-                <elem tag="death_place"/>
-                <elem tag="residence"/>
-            </elem>
-            <elem tag="function"/>
-            <elem tag="gender"/>
-            <elem tag="taxonomy">
-                <elem tag="category"/>
-                <elem tag="subject"/>
-                <elem tag="tags"/>
-                <elem tag="sections"/>
-            </elem>
-            <elem tag="person_category"/>
-            <elem tag="media"/>
-            <elem tag="path"/>
-
-        </elem>
-
-        <elem tag="plaats">
-
-            <elem tag="language"/>
-            <elem tag="title"/>
-            <elem tag="taglines"/>
-            <elem tag="summary"/>
-            <elem tag="body"/>
-            <elem tag="taxonomy">
-                <elem tag="subject"/>
-                <elem tag="tags"/>
-                <elem tag="user_sections"/>
-            </elem>
             <elem tag="wapen">
                 <elem tag="wapen"/>
                 <elem tag="wapen_toelichting"/>
             </elem>
-            <elem tag="media"/>
-            <elem tag="path"/>
         </elem>
 
-        <elem tag="pvb_story">
 
-            <elem tag="language"/>
-            <elem tag="title"/>
-            <elem tag="taglines"/>
-            <elem tag="summary"/>
-            <elem tag="body"/>
-            <elem tag="story_type"/>
-            <elem tag="story_year"/>
-            <elem tag="date"/>
-            <elem tag="date_year"/>
-            <elem tag="date_circa"/>
-            <elem tag="ref_pvb"/>
+        <elem tag="accommodation" attrs="accommodation_type" elems="itinNode, open, contact, taxonomy">
 
-            <elem tag="experience">
-                <elem tag="exp_why"/>
-                <elem tag="experience"/>
-            </elem>
-            <elem tag="sources"/>
-            <elem tag="taxonomy">
-                <elem tag="category"/>
-                <elem tag="subject"/>
-                <elem tag="tags"/>
-                <elem tag="sections"/>
-            </elem>
-            <elem tag="attachments"/>
-            <elem tag="media"/>
-            <elem tag="path"/>
-        </elem>
-
-        <elem tag="reference">
-
-            <elem tag="language"/>
-            <elem tag="title"/>
-            <elem tag="source"/>
-            <elem tag="reference_type"/>
-            <elem tag="author"/>
-            <elem tag="pub_location"/>
-            <elem tag="pub_year"/>
-            <elem tag="book">
-                <elem tag="publisher"/>
-            </elem>
-            <elem tag="magazine"/> <!-- group -->
-            <elem tag="book_magazine">
-                <elem tag="isbn"/>
-                <elem tag="issn"/>
-                <elem tag="magazine_name"/>
-                <elem tag="magazine_issue"/>
-            </elem>
-            <elem tag="pages"/>
-            <elem tag="page_numbers"/>
-            <elem tag="website">
-                <elem tag="organisation_name"/>
-                <elem tag="url"/>
-            </elem>
-            <elem tag="related_pvb"/>
-            <elem tag="media"/>
-            <elem tag="path"/>
-        </elem>
-
-        <elem tag="page">
-
-            <elem tag="language"/>
-            <elem tag="title"/>
-            <elem tag="taglines"/>
-            <elem tag="summary"/>
-            <elem tag="body"/>
-            <elem tag="media"/>
-            <elem tag="path"/>
-
-        </elem>
-
-        <elem tag="accommodation">
-
-            <elem tag="language"/>
-            <elem tag="title"/>
-            <elem tag="taglines"/>
-            <elem tag="summary"/>
-            <elem tag="body"/>
-            <elem tag="accommodation_type"/>
             <elem tag="classification"/>
-            <elem tag="taxonomy">
-                <elem tag="subject"/>
-                <elem tag="tags"/>
-                <elem tag="sections"/>
-            </elem>
-            <elem tag="contact">
-                <elem tag="phone"/>
-                <elem tag="email"/>
-                <elem tag="url"/>
-            </elem>
-            <elem tag="open">
-                <elem tag="open_days"/>
-                <elem tag="open_description"/>
-            </elem>
             <elem tag="public_transport"/>
             <elem tag="sources"/>
-            <elem tag="media"/>
-            <elem tag="path"/>
             <elem tag="amazon"/>
 
         </elem>
 
-        <elem tag="event">
-
-            <elem tag="language"/>
-            <elem tag="title"/>
-            <elem tag="taglines"/>
-            <elem tag="summary"/>
-            <elem tag="body"/>
-            <elem tag="event_type"/>
-            <elem tag="event_date"/>
-            <elem tag="date"/>
-            <elem tag="date_year"/>
-            <elem tag="date_circa"/>
-            <elem tag="url"/>
-            <elem tag="contact"/>
-            <elem tag="taxonomy">
-                <elem tag="subject"/>
-                <elem tag="tags"/>
-                <elem tag="sections"/>
-            </elem>
-            <elem tag="sources"/>
-            <elem tag="media"/>
-            <elem tag="path"/>
-
-        </elem>
-
-        <elem tag="auteur">
-
-            <elem tag="language"/>
-            <elem tag="title"/>
-            <elem tag="taglines"/>
-            <elem tag="summary"/>
-            <elem tag="body"/>
-            <elem tag="phone"/>
-            <elem tag="email"/>
-            <elem tag="twitter"/>
-            <elem tag="facebook"/>
-            <elem tag="hyves"/>
-            <elem tag="linkedin"/>
-            <elem tag="url"/>
-            <elem tag="taxonomy">
-                <elem tag="subject"/>
-                <elem tag="tags"/>
-                <elem tag="sections"/>
-            </elem>
-            <elem tag="media"/>
-            <elem tag="path"/>
-
-        </elem>
-
-        <elem tag="organisatie">
-
-            <elem tag="language"/>
-            <elem tag="title"/>
-            <elem tag="taglines"/>
-            <elem tag="summary"/>
-            <elem tag="body"/>
-            <elem tag="taxonomy">
-                <elem tag="subject"/>
-                <elem tag="tags"/>
-                <elem tag="sections"/>
-            </elem>
-            <elem tag="media"/>
-            <elem tag="path"/>
-
-        </elem>
-
-        <elem tag="pvb">
+        <elem tag="pvb" elems="taxonomy, media, path">
 
             <elem tag="language"/>
             <elem tag="title"/>
@@ -377,12 +164,6 @@
                     <elem tag="facilities_other"/>
                 </elem>
             </elem>
-            <elem tag="taxonomy">
-                <elem tag="category"/>
-                <elem tag="subject"/>
-                <elem tag="tags"/>
-                <elem tag="sections"/>
-            </elem>
             <elem tag="history">
                 <elem tag="history"/>
                 <elem tag="use"/>
@@ -391,91 +172,219 @@
             <elem tag="ref_collection"/>
             <elem tag="sources"/>
             <elem tag="attachments"/>
-            <elem tag="media"/>
-            <elem tag="path"/>
         </elem>
 
-        <elem tag="route">
+        <elem tag="history_person" elems="taxonomy, media, path">
 
             <elem tag="language"/>
             <elem tag="title"/>
             <elem tag="taglines"/>
             <elem tag="summary"/>
             <elem tag="body"/>
-            <elem tag="routeyou_id"/>
-            <elem tag="route_type"/>
-            <elem tag="related_pvb"/>
-            <elem tag="taxonomy">
-                <elem tag="subject"/>
-                <elem tag="tags"/>
-                <elem tag="sections"/>
+            <elem tag="life">
+                <elem tag="dates"/> <!-- birth, death dates-->
+                <elem tag="life"/>  <!-- birth, death year-->
+                <elem tag="date_circa"/>
+                <elem tag="birth_place"/>
+                <elem tag="death_place"/>
+                <elem tag="residence"/>
             </elem>
-            <elem tag="media"/>
-            <elem tag="path"/>
+            <elem tag="function"/>
+            <elem tag="gender"/>
+            <elem tag="person_category"/>
 
         </elem>
+
+
+        <elem tag="reference" elems="media, path">
+
+            <elem tag="language"/>
+            <elem tag="title"/>
+            <elem tag="source"/>
+            <elem tag="reference_type"/>
+            <elem tag="author"/>
+            <elem tag="pub_location"/>
+            <elem tag="pub_year"/>
+            <elem tag="book">
+                <elem tag="publisher"/>
+            </elem>
+            <elem tag="magazine"/> <!-- group -->
+            <elem tag="book_magazine">
+                <elem tag="isbn"/>
+                <elem tag="issn"/>
+                <elem tag="magazine_name"/>
+                <elem tag="magazine_issue"/>
+            </elem>
+            <elem tag="pages"/>
+            <elem tag="page_numbers"/>
+            <elem tag="website">
+                <elem tag="organisation_name"/>
+                <elem tag="url"/>
+            </elem>
+            <elem tag="related_pvb"/>
+        </elem>
+
+        <!--<elem tag="object" elems="path">-->
+
+            <!--<elem tag="language"/>-->
+            <!--<elem tag="title"/>-->
+            <!--<elem tag="taglines"/>-->
+            <!--<elem tag="summary"/>-->
+            <!--<elem tag="body"/>-->
+            <!--<elem tag="organisation"/>-->
+            <!--<elem tag="identifier"/>-->
+            <!--<elem tag="dc_publisher"/>-->
+            <!--<elem tag="object_type"/>-->
+            <!--<elem tag="scene"/>-->
+            <!--<elem tag="onderwerp">-->
+                <!--<elem tag="ref_pvb"/>-->
+                <!--<elem tag="ref_persons"/>-->
+                <!--<elem tag="history_events"/>-->
+                <!--<elem tag="media_subject"/>-->
+            <!--</elem>-->
+            <!--<elem tag="metadata">-->
+                <!--<elem tag="creator"/>-->
+                <!--<elem tag="creation_date"/>-->
+                <!--<elem tag="material"/>-->
+                <!--<elem tag="size"/>-->
+            <!--</elem>-->
+            <!--<elem tag="remarks"/>-->
+            <!--<elem tag="copyright"/>-->
+            <!--<elem tag="sources"/>-->
+        <!--</elem>-->
+
+        <!--<elem tag="history_event" elems="taxonomy, media, path">-->
+
+            <!--<elem tag="language"/>-->
+            <!--<elem tag="title"/>-->
+            <!--<elem tag="taglines"/>-->
+            <!--<elem tag="summary"/>-->
+            <!--<elem tag="body"/>-->
+            <!--<elem tag="history_date"/>-->
+            <!--<elem tag="date"/>-->
+            <!--<elem tag="date_year"/>-->
+            <!--<elem tag="date_circa"/>-->
+            <!--<elem tag="url"/>-->
+            <!--<elem tag="contact"/>-->
+            <!--<elem tag="sources"/>-->
+            <!--<elem tag="ref_other"/>-->
+
+        <!--</elem>-->
+
+        <!--<elem tag="history_period" elems="taxonomy, media, path">-->
+
+            <!--<elem tag="language"/>-->
+            <!--<elem tag="title"/>-->
+            <!--<elem tag="taglines"/>-->
+            <!--<elem tag="summary"/>-->
+            <!--<elem tag="body"/>-->
+            <!--<elem tag="experience"/>-->
+            <!--<elem tag="sources"/>-->
+            <!--<elem tag="period_date"/>-->
+        <!--</elem>-->
+
+
+        <!--<elem tag="pvb_story" elems="taxonomy, media, path">-->
+
+            <!--<elem tag="language"/>-->
+            <!--<elem tag="title"/>-->
+            <!--<elem tag="taglines"/>-->
+            <!--<elem tag="summary"/>-->
+            <!--<elem tag="body"/>-->
+            <!--<elem tag="story_type"/>-->
+            <!--<elem tag="story_year"/>-->
+            <!--<elem tag="date"/>-->
+            <!--<elem tag="date_year"/>-->
+            <!--<elem tag="date_circa"/>-->
+            <!--<elem tag="ref_pvb"/>-->
+
+            <!--<elem tag="experience">-->
+                <!--<elem tag="exp_why"/>-->
+                <!--<elem tag="experience"/>-->
+            <!--</elem>-->
+            <!--<elem tag="sources"/>-->
+            <!--<elem tag="attachments"/>-->
+        <!--</elem>-->
+
+
+        <!--<elem tag="page">-->
+
+            <!--<elem tag="language"/>-->
+            <!--<elem tag="title"/>-->
+            <!--<elem tag="taglines"/>-->
+            <!--<elem tag="summary"/>-->
+            <!--<elem tag="body"/>-->
+            <!--<elem tag="media"/>-->
+            <!--<elem tag="path"/>-->
+
+        <!--</elem>-->
+
+
+        <!--<elem tag="event" elems="taxonomy, media, path">-->
+
+            <!--<elem tag="language"/>-->
+            <!--<elem tag="title"/>-->
+            <!--<elem tag="taglines"/>-->
+            <!--<elem tag="summary"/>-->
+            <!--<elem tag="body"/>-->
+            <!--<elem tag="event_type"/>-->
+            <!--<elem tag="event_date"/>-->
+            <!--<elem tag="date"/>-->
+            <!--<elem tag="date_year"/>-->
+            <!--<elem tag="date_circa"/>-->
+            <!--<elem tag="url"/>-->
+            <!--<elem tag="contact"/>-->
+            <!--<elem tag="sources"/>-->
+
+        <!--</elem>-->
+
+        <!--<elem tag="author"  elems="taxonomy, media, path">-->
+
+            <!--<elem tag="language"/>-->
+            <!--<elem tag="title"/>-->
+            <!--<elem tag="taglines"/>-->
+            <!--<elem tag="summary"/>-->
+            <!--<elem tag="body"/>-->
+            <!--<elem tag="phone"/>-->
+            <!--<elem tag="email"/>-->
+            <!--<elem tag="twitter"/>-->
+            <!--<elem tag="facebook"/>-->
+            <!--<elem tag="hyves"/>-->
+            <!--<elem tag="linkedin"/>-->
+            <!--<elem tag="url"/>-->
+
+        <!--</elem>-->
+
+
+
+        <!--<elem tag="route" elems="taxonomy, media, path">-->
+
+            <!--<elem tag="language"/>-->
+            <!--<elem tag="title"/>-->
+            <!--<elem tag="taglines"/>-->
+            <!--<elem tag="summary"/>-->
+            <!--<elem tag="body"/>-->
+            <!--<elem tag="routeyou_id"/>-->
+            <!--<elem tag="route_type"/>-->
+            <!--<elem tag="related_pvb"/>-->
+
+        <!--</elem>-->
 
  </root>
 
 
     <opts>
 
-        <opt-list path="/record/object" key="@type" value="@typeName">
-            <opt hidden="true" key="object">Object</opt>
-        </opt-list>
+        <!--<opt-list path="/record/object" key="@type" value="@typeName">-->
+            <!--<opt hidden="true" key="object">Object</opt>-->
+        <!--</opt-list>-->
 
-        <opt-list path="/record/history_event" key="@typeUri" value="@type">
-            <opt hidden="true" key="object"></opt>
-        </opt-list>
-
-        <opt-list path="/record/history_period" key="@typeUri" value="@type">
-            <opt hidden="true" key="object"></opt>
-        </opt-list>
-
-        <opt-list path="/record/history_person" key="@typeUri" value="@type">
-            <opt hidden="true" key="object"></opt>
-        </opt-list>
-
-        <opt-list path="/record/plaats" key="@typeUri" value="@type">
-            <opt hidden="true" key="object"></opt>
-        </opt-list>
-
-        <opt-list path="/record/pvb_story" key="@typeUri" value="@type">
-            <opt hidden="true" key="object"></opt>
-        </opt-list>
-
-        <opt-list path="/record/reference" key="@typeUri" value="@type">
-            <opt hidden="true" key="object"></opt>
-        </opt-list>
-
-        <opt-list path="/record/page" key="@typeUri" value="@type">
-            <opt hidden="true" key="object"></opt>
-        </opt-list>
-
-        <opt-list path="/record/accommodation" key="@typeUri" value="@type">
-            <opt hidden="true" key="object"></opt>
-        </opt-list>
-
-        <opt-list path="/record/event" key="@typeUri" value="@type">
-            <opt hidden="true" key="object"></opt>
-        </opt-list>
-
-        <opt-list path="/record/auteur" key="@typeUri" value="@type">
-            <opt hidden="true" key="object"></opt>
-        </opt-list>
-
-        <opt-list path="/record/organisatie" key="@typeUri" value="@type">
-            <opt hidden="true" key="object"></opt>
-        </opt-list>
-
-        <opt-list path="/record/pvb" key="@typeUri" value="@type">
-            <opt hidden="true" key="object"></opt>
-        </opt-list>
-
-        <opt-list path="/record/route" key="@typeUri" value="@type">
-            <opt hidden="true" key="object"></opt>
-        </opt-list>
     </opts>
+
+    <bookmarks>
+
+
+    </bookmarks>
 
     <facts>
         <fact-ref path="/record/admin/displayDataProvider" name="dataProvider"/>
