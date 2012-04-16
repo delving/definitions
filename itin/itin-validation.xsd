@@ -5,11 +5,20 @@
            targetNamespace="http://schemas.delving.eu/itin/"
            xmlns:xs="http://www.w3.org/2001/XMLSchema">
 
+
+
+    <xs:attribute name="type" type="xs:string"/>
+    <xs:attribute name="sourceId" type="xs:string"/>
+    <xs:attribute name="organizationType" type="xs:string"/>
+
+
+
     <xs:element name="record" type="itin:recordType"/>
 
     <xs:complexType name="recordType">
         <xs:sequence>
             <xs:element type="itin:adminType" name="admin" minOccurs="1" maxOccurs="1"/>
+            <xs:element type="itin:organizationType" name="organization" minOccurs="0" maxOccurs="1"/>
         </xs:sequence>
     </xs:complexType>
 
@@ -21,6 +30,84 @@
         </xs:sequence>
     </xs:complexType>
 
+    <xs:complexType name="organizationType">
+        <xs:sequence>
+            <xs:element type="itin:itinNodeType" name="itinNode" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element type="itin:openType" name="open" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element type="itin:adressType" name="address" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element type="itin:contactType" name="contact" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element type="itin:taxonomyType" name="taxonomy" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+        <xs:attribute ref="itin:sourceId"/>
+        <xs:attribute ref="itin:organizationType"/>
+    </xs:complexType>
 
+    <xs:complexType name="itinNodeType">
+        <xs:sequence>
+            <xs:element name="title" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element name="language" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element name="taglines" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element name="summary" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element name="body" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element name="media" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element name="path" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="openType">
+        <xs:sequence>
+            <xs:element name="open_days" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element name="open_description" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="adressType">
+        <xs:sequence>
+            <xs:element name="country" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element name="province" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element name="region" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element name="city" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element name="postcode" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element name="streetAddress" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element name="phone" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element name="email" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element name="url" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element type="itin:gisType" name="gis" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="contactType">
+        <xs:sequence>
+            <xs:element name="position" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element name="name" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element name="city" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element name="postcode" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element name="streetAddress" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element name="phone" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element name="email" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element name="url" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element type="itin:gisType" name="gis" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+        <xs:attribute ref="itin:type"/>
+    </xs:complexType>
+
+    <xs:complexType name="gisType">
+        <xs:sequence>
+            <xs:element name="geonamesUri" minOccurs="0" maxOccurs="1"/>
+            <xs:element name="geonamesId" minOccurs="0" maxOccurs="1"/>
+            <xs:element name="place" minOccurs="0" maxOccurs="1"/>
+            <xs:element name="long" minOccurs="0" maxOccurs="1"/>
+            <xs:element name="lat" minOccurs="0" maxOccurs="1"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="taxonomyType">
+        <xs:sequence>
+            <xs:element name="category" minOccurs="0" maxOccurs="1"/>
+            <xs:element name="subject" minOccurs="0" maxOccurs="1"/>
+            <xs:element name="tags" minOccurs="0" maxOccurs="1"/>
+            <xs:element name="sections" minOccurs="0" maxOccurs="1"/>
+        </xs:sequence>
+    </xs:complexType>
 
 </xs:schema>
