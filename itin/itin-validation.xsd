@@ -22,6 +22,7 @@
     <xs:attribute name="linkType" type="xs:string"/>
     <xs:attribute name="pathalias" type="xs:string"/>
     <xs:attribute name="path" type="xs:string"/>
+    <xs:attribute name="accomodationType" type="xs:string"/>
 
 
     <xs:element type="itin:recordType" name="record" />
@@ -35,9 +36,26 @@
             <xs:element type="itin:eventType" name="event" minOccurs="0" />
             <xs:element type="itin:pvbType" name="pvb" minOccurs="0" />
             <xs:element type="itin:placeType" name="place" minOccurs="0" />
+            <xs:element type="itin:accomodationType" name="accomodation" minOccurs="0" />
         </xs:sequence>
         <xs:attribute ref="itin:recordType"/>
         <xs:attribute ref="itin:sourceId"/>
+    </xs:complexType>
+
+    <xs:complexType name="accomodationType">
+        <xs:sequence>
+            <xs:element name="classification" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element name="public_transport" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element name="sources" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element name="amazon" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element type="itin:itinNodeType" name="itinNode" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element type="itin:openType" name="open" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element type="itin:contactType" name="contact" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element type="itin:taxonomyType" name="taxonomy" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element type="itin:linksType" name="links" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+        <xs:attribute ref="itin:sourceId"/>
+        <xs:attribute ref="itin:accomodationType"/>
     </xs:complexType>
 
     <xs:complexType name="placeType">

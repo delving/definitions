@@ -301,15 +301,22 @@
             </elem>
         </elem>
 
-        <!--<elem tag="accommodation" attrs="sourceId, accommodationType" elems="itinNode, open, contact, taxonomy, links">-->
 
-            <!--<elem tag="classification"/>-->
-            <!--<elem tag="public_transport"/>-->
-            <!--<elem tag="sources"/>-->
-            <!--<elem tag="amazon"/>-->
+        <elem tag="accommodation" attrs="sourceId, accommodationType" elems="itinNode, open, contact, taxonomy, links">
 
-        <!--</elem>-->
+            <elem tag="classification"/>
+            <elem tag="public_transport"/>
+            <elem tag="sources"/>
+            <elem tag="amazon"/>
 
+        </elem>
+
+        <elem tag="history_period" elems="itinNode, taxonomy">
+
+            <elem tag="experience"/>
+            <elem tag="sources"/>
+            <elem tag="period_date"/>
+        </elem>
 
 
 
@@ -363,17 +370,6 @@
 
         <!--</elem>-->
 
-        <!--<elem tag="history_period" elems="taxonomy, media, path">-->
-
-            <!--<elem tag="language"/>-->
-            <!--<elem tag="title"/>-->
-            <!--<elem tag="taglines"/>-->
-            <!--<elem tag="summary"/>-->
-            <!--<elem tag="body"/>-->
-            <!--<elem tag="experience"/>-->
-            <!--<elem tag="sources"/>-->
-            <!--<elem tag="period_date"/>-->
-        <!--</elem>-->
 
 
         <!--<elem tag="pvb_story" elems="taxonomy, media, path">-->
