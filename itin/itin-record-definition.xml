@@ -202,18 +202,16 @@
                 <elem tag="category" attrs="type"/>
             </elem>
 
-            <elem tag="eventDetails">
-                <elem tag="eventDetail" elems="urls">
-                    <elem tag="title"/>
-                    <elem tag="shortDescription"/>
-                    <elem tag="longDescription"/>
-                    <elem tag="notes"/>
-                    <elem tag="media">
-                        <elem tag="file" attrs="type">
-                            <elem tag="description"/>
-                            <elem tag="hlink"/>
-                            <elem tag="title"/>
-                        </elem>
+            <elem tag="eventDetail" elems="urls">
+                <elem tag="title"/>
+                <elem tag="shortDescription"/>
+                <elem tag="longDescription"/>
+                <elem tag="notes"/>
+                <elem tag="media">
+                    <elem tag="file" attrs="type">
+                        <elem tag="description"/>
+                        <elem tag="hlink"/>
+                        <elem tag="title"/>
                     </elem>
                 </elem>
             </elem>
