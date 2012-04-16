@@ -11,6 +11,9 @@
     <xs:attribute name="type" type="xs:string"/>
     <xs:attribute name="sourceId" type="xs:string"/>
     <xs:attribute name="organizationType" type="xs:string"/>
+    <xs:attribute name="referenceType" type="xs:string"/>
+    <xs:attribute name="eventType" type="xs:string"/>
+
     <xs:attribute name="extra" type="xs:string"/>
     <xs:attribute name="firstName" type="xs:string"/>
     <xs:attribute name="lastName" type="xs:string"/>
@@ -22,6 +25,7 @@
     <xs:attribute name="linkType" type="xs:string"/>
     <xs:attribute name="pathalias" type="xs:string"/>
     <xs:attribute name="path" type="xs:string"/>
+    <xs:attribute name="accomodationType" type="xs:string"/>
 
 
     <xs:element type="itin:recordType" name="record" />
@@ -35,14 +39,41 @@
             <xs:element type="itin:eventType" name="event" minOccurs="0" />
             <xs:element type="itin:pvbType" name="pvb" minOccurs="0" />
             <xs:element type="itin:placeType" name="place" minOccurs="0" />
+            <xs:element type="itin:accomodationType" name="accomodation" minOccurs="0" />
+            <xs:element type="itin:historyPeriodType" name="history_period" minOccurs="0" />
         </xs:sequence>
         <xs:attribute ref="itin:recordType"/>
         <xs:attribute ref="itin:sourceId"/>
     </xs:complexType>
 
+    <xs:complexType name="historyPeriodType">
+        <xs:sequence>
+            <xs:element name="experience" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element name="sources" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element name="period_date" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element type="itin:itinNodeType" name="itinNode" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element type="itin:taxonomyType" name="taxonomy" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="accomodationType">
+        <xs:sequence>
+            <xs:element name="classification" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element name="public_transport" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element name="sources" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element name="amazon" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element type="itin:itinNodeType" name="itinNode" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element type="itin:openType" name="open" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element type="itin:contactType" name="contact" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element type="itin:taxonomyType" name="taxonomy" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element type="itin:linksType" name="links" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+        <xs:attribute ref="itin:sourceId"/>
+        <xs:attribute ref="itin:accomodationType"/>
+    </xs:complexType>
+
     <xs:complexType name="placeType">
         <xs:sequence>
-            <xs:element name="sourceId" minOccurs="0" maxOccurs="unbounded"/>
             <xs:element type="itin:wapenType" name="wapen" minOccurs="0" maxOccurs="unbounded"/>
             <xs:element type="itin:itinNodeType" name="itinNode" minOccurs="0" maxOccurs="unbounded"/>
             <xs:element type="itin:locationType" name="location" minOccurs="0" maxOccurs="unbounded"/>
@@ -69,7 +100,6 @@
 
     <xs:complexType name="organizationType">
         <xs:sequence>
-            <xs:element name="sourceId" minOccurs="0" maxOccurs="unbounded"/>
             <xs:element type="itin:itinNodeType" name="itinNode" minOccurs="0" maxOccurs="unbounded"/>
             <xs:element type="itin:openType" name="open" minOccurs="0" maxOccurs="unbounded"/>
             <xs:element type="itin:addressType" name="address" minOccurs="0" maxOccurs="unbounded"/>
@@ -82,8 +112,8 @@
 
     <xs:complexType name="historyPersonType">
         <xs:sequence>
-            <xs:element name="sourceId" minOccurs="0" maxOccurs="unbounded"/>
             <xs:element type="itin:lifeType" name="life" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element name="nickname" minOccurs="0" maxOccurs="unbounded"/>
             <xs:element name="function" minOccurs="0" maxOccurs="unbounded"/>
             <xs:element name="gender" minOccurs="0" maxOccurs="unbounded"/>
             <xs:element name="person_category" minOccurs="0" maxOccurs="unbounded"/>
@@ -94,7 +124,6 @@
 
     <xs:complexType name="eventType">
         <xs:sequence>
-            <xs:element name="sourceId" minOccurs="0" maxOccurs="unbounded"/>
             <xs:element type="itin:categoriesType" name="categories" minOccurs="0" maxOccurs="unbounded"/>
             <xs:element type="itin:eventDetailsType" name="eventDetails" minOccurs="0" maxOccurs="unbounded"/>
             <xs:element type="itin:participantsType" name="participants" minOccurs="0" maxOccurs="unbounded"/>
@@ -107,6 +136,7 @@
             <xs:element type="itin:linksType" name="links" minOccurs="0" maxOccurs="unbounded"/>
             <xs:element type="itin:itinNodeType" name="itinNode" minOccurs="0" maxOccurs="unbounded"/>
         </xs:sequence>
+        <xs:attribute ref="itin:eventType"/>
     </xs:complexType>
 
     <xs:complexType name="categoriesType">
@@ -218,12 +248,9 @@
 
     <xs:complexType name="referenceType">
         <xs:sequence>
-            <xs:element name="sourceId" minOccurs="0" maxOccurs="unbounded"/>
-
             <xs:element name="language" minOccurs="0" maxOccurs="unbounded"/>
             <xs:element name="title" minOccurs="0" maxOccurs="unbounded"/>
             <xs:element name="source" minOccurs="0" maxOccurs="unbounded"/>
-            <xs:element name="reference_type" minOccurs="0" maxOccurs="unbounded"/>
             <xs:element name="author" minOccurs="0" maxOccurs="unbounded"/>
             <xs:element name="pub_location" minOccurs="0" maxOccurs="unbounded"/>
             <xs:element name="pub_year" minOccurs="0" maxOccurs="unbounded"/>
@@ -236,6 +263,7 @@
             <xs:element name="related_pvb" minOccurs="0" maxOccurs="unbounded"/>
             <xs:element name="related_history_person" minOccurs="0" maxOccurs="unbounded"/>
         </xs:sequence>
+        <xs:attribute ref="itin:referenceType"/>
     </xs:complexType>
 
     <xs:complexType name="bookType">
@@ -330,8 +358,6 @@
 
     <xs:complexType name="pvbType">
         <xs:sequence>
-            <xs:element name="sourceId" minOccurs="0" maxOccurs="unbounded"/>
-
             <xs:element name="language" minOccurs="0" maxOccurs="unbounded"/>
             <xs:element name="title" minOccurs="0" maxOccurs="unbounded"/>
             <xs:element type="itin:descriptionType" name="description" minOccurs="0" maxOccurs="unbounded"/>
