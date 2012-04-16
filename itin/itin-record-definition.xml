@@ -28,6 +28,24 @@
             </options>
         </attr>
 
+        <attr tag="referenceType">
+            <options>
+                <string>Boek</string>
+                <string>Tijdschrift</string>
+                <string>Krant</string>
+                <string>Wetenschappelijk tijdschrift</string>
+                <string>Bron</string>
+                <string>Link</string>
+                <string>Overig</string>
+            </options>
+        </attr>
+
+        <attr tag="eventType">
+            <options>
+                <string>PENDING</string>
+            </options>
+        </attr>
+
         <attr tag="accommodationType">
             <options>
                 <string>café</string>
@@ -140,6 +158,8 @@
 
     <root tag="record" attrs="recordType, sourceId">
 
+
+
         <elem tag="admin" singular="true" unmapable="true">
             <elem tag="displayDataProvider"/>
             <elem tag="displayDataProviderCountry"/>
@@ -147,7 +167,6 @@
         </elem>
 
         <elem tag="organization" attrs="sourceId, organizationType" elems="itinNode, open, address, contact, taxonomy">
-            <elem tag="sourceId"/>
 
         </elem>
 
@@ -162,19 +181,18 @@
                 <elem tag="death_place"/>
                 <elem tag="residence"/>
             </elem>
+            <elem tag="nickname"/>
             <elem tag="function"/>
             <elem tag="gender"/>
             <elem tag="person_category"/>
 
         </elem>
 
-        <elem tag="reference" elems="media, path">
-            <elem tag="sourceId"/>
+        <elem tag="reference" attrs="referenceType" elems="media, path">
 
             <elem tag="language"/>
             <elem tag="title"/>
             <elem tag="source"/>
-            <elem tag="reference_type"/>
             <elem tag="author"/>
             <elem tag="pub_location"/>
             <elem tag="pub_year"/>
@@ -198,8 +216,7 @@
             <elem tag="related_history_person"/>
         </elem>
 
-        <elem tag="event" attrs="sourceId" elems="calendar, contact, location, links, itinNode">
-            <elem tag="sourceId"/>
+        <elem tag="event" attrs="sourceId, eventType" elems="calendar, contact, location, links, itinNode">
 
 
             <elem tag="categories">
@@ -229,7 +246,6 @@
         </elem>
 
         <elem tag="pvb" elems="taxonomy, media, path, links">
-            <elem tag="sourceId"/>
 
             <elem tag="language"/>
             <elem tag="title"/>
@@ -293,7 +309,6 @@
         </elem>
 
         <elem tag="place" attrs="sourceId, placeType" elems="itinNode, location, taxonomy">
-            <elem tag="sourceId"/>
 
             <elem tag="wapen">
                 <elem tag="wapen"/>
