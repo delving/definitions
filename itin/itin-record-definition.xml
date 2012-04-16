@@ -138,7 +138,7 @@
 
     </elems>
 
-    <root tag="record" attrs="recordType">
+    <root tag="record" attrs="recordType, sourceId">
 
         <elem tag="admin" singular="true" unmapable="true">
             <elem tag="displayDataProvider"/>
@@ -147,6 +147,7 @@
         </elem>
 
         <elem tag="organization" attrs="sourceId, organizationType" elems="itinNode, open, address, contact, taxonomy">
+            <elem tag="sourceId"/>
 
         </elem>
 
@@ -168,6 +169,7 @@
         </elem>
 
         <elem tag="reference" elems="media, path">
+            <elem tag="sourceId"/>
 
             <elem tag="language"/>
             <elem tag="title"/>
@@ -197,6 +199,7 @@
         </elem>
 
         <elem tag="event" attrs="sourceId" elems="calendar, contact, location, links, itinNode">
+            <elem tag="sourceId"/>
 
 
             <elem tag="categories">
@@ -226,6 +229,7 @@
         </elem>
 
         <elem tag="pvb" elems="taxonomy, media, path, links">
+            <elem tag="sourceId"/>
 
             <elem tag="language"/>
             <elem tag="title"/>
@@ -288,6 +292,15 @@
             <elem tag="attachments"/>
         </elem>
 
+        <elem tag="place" attrs="sourceId, placeType" elems="itinNode, location, taxonomy">
+            <elem tag="sourceId"/>
+
+            <elem tag="wapen">
+                <elem tag="wapen"/>
+                <elem tag="wapen_toelichting"/>
+            </elem>
+        </elem>
+
         <!--<elem tag="accommodation" attrs="sourceId, accommodationType" elems="itinNode, open, contact, taxonomy, links">-->
 
             <!--<elem tag="classification"/>-->
@@ -297,13 +310,6 @@
 
         <!--</elem>-->
 
-        <!--<elem tag="place" attrs="sourceId, placeType" elems="itinNode, gis, taxonomy, media, path">-->
-
-            <!--<elem tag="wapen">-->
-                <!--<elem tag="wapen"/>-->
-                <!--<elem tag="wapen_toelichting"/>-->
-            <!--</elem>-->
-        <!--</elem>-->
 
 
 

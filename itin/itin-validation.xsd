@@ -34,10 +34,30 @@
             <xs:element type="itin:referenceType" name="reference" minOccurs="0" />
             <xs:element type="itin:eventType" name="event" minOccurs="0" />
             <xs:element type="itin:pvbType" name="pvb" minOccurs="0" />
+            <xs:element type="itin:placeType" name="place" minOccurs="0" />
         </xs:sequence>
         <xs:attribute ref="itin:recordType"/>
+        <xs:attribute ref="itin:sourceId"/>
     </xs:complexType>
 
+    <xs:complexType name="placeType">
+        <xs:sequence>
+            <xs:element name="sourceId" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element type="itin:wapenType" name="wapen" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element type="itin:itinNodeType" name="itinNode" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element type="itin:locationType" name="location" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element type="itin:taxonomyType" name="taxonomy" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+        <xs:attribute ref="itin:sourceId"/>
+        <xs:attribute ref="itin:organizationType"/>
+    </xs:complexType>
+
+    <xs:complexType name="wapenType">
+        <xs:sequence>
+            <xs:element name="wapen" minOccurs="0" maxOccurs="1"/>
+            <xs:element name="wapen_toelichting" minOccurs="0" maxOccurs="1"/>
+        </xs:sequence>
+    </xs:complexType>
 
     <xs:complexType name="adminType">
         <xs:sequence>
@@ -49,6 +69,7 @@
 
     <xs:complexType name="organizationType">
         <xs:sequence>
+            <xs:element name="sourceId" minOccurs="0" maxOccurs="unbounded"/>
             <xs:element type="itin:itinNodeType" name="itinNode" minOccurs="0" maxOccurs="unbounded"/>
             <xs:element type="itin:openType" name="open" minOccurs="0" maxOccurs="unbounded"/>
             <xs:element type="itin:addressType" name="address" minOccurs="0" maxOccurs="unbounded"/>
@@ -61,6 +82,7 @@
 
     <xs:complexType name="historyPersonType">
         <xs:sequence>
+            <xs:element name="sourceId" minOccurs="0" maxOccurs="unbounded"/>
             <xs:element type="itin:lifeType" name="life" minOccurs="0" maxOccurs="unbounded"/>
             <xs:element name="function" minOccurs="0" maxOccurs="unbounded"/>
             <xs:element name="gender" minOccurs="0" maxOccurs="unbounded"/>
@@ -72,6 +94,7 @@
 
     <xs:complexType name="eventType">
         <xs:sequence>
+            <xs:element name="sourceId" minOccurs="0" maxOccurs="unbounded"/>
             <xs:element type="itin:categoriesType" name="categories" minOccurs="0" maxOccurs="unbounded"/>
             <xs:element type="itin:eventDetailsType" name="eventDetails" minOccurs="0" maxOccurs="unbounded"/>
             <xs:element type="itin:participantsType" name="participants" minOccurs="0" maxOccurs="unbounded"/>
@@ -195,6 +218,8 @@
 
     <xs:complexType name="referenceType">
         <xs:sequence>
+            <xs:element name="sourceId" minOccurs="0" maxOccurs="unbounded"/>
+
             <xs:element name="language" minOccurs="0" maxOccurs="unbounded"/>
             <xs:element name="title" minOccurs="0" maxOccurs="unbounded"/>
             <xs:element name="source" minOccurs="0" maxOccurs="unbounded"/>
@@ -305,6 +330,8 @@
 
     <xs:complexType name="pvbType">
         <xs:sequence>
+            <xs:element name="sourceId" minOccurs="0" maxOccurs="unbounded"/>
+
             <xs:element name="language" minOccurs="0" maxOccurs="unbounded"/>
             <xs:element name="title" minOccurs="0" maxOccurs="unbounded"/>
             <xs:element type="itin:descriptionType" name="description" minOccurs="0" maxOccurs="unbounded"/>
