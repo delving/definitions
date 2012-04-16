@@ -16,7 +16,7 @@
         <attr tag="type"/>
 
         <attr tag="organizationType">
-            <options>
+            <options> <!--todo: must become an opt-list-->
                 <string>Onbekend / n.v.t.</string>
                 <string>Onderwijsinstelling</string>
                 <string>Overheidsinstelling</string>
@@ -58,7 +58,7 @@
         </attr>
 
         <attr tag="accommodationType">
-            <options>
+            <options> <!--todo: must become an opt-list-->
                 <string>café</string>
                 <string>hotel</string>
                 <string>restaurant</string>
@@ -67,7 +67,7 @@
         </attr>
 
         <attr tag="placeType">
-            <options>
+            <options> <!--todo: must become an opt-list-->
                 <string></string>
                 <string>hotel</string>
                 <string>restaurant</string>
