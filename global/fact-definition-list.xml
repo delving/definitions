@@ -8,7 +8,7 @@
     </fact-definition>
     <fact-definition name="language">
         <prompt>Language</prompt>
-        <options> <!--todo: must become an opt-list-->
+        <options>
             <string>az</string>
             <string>bg</string>
             <string>bs</string>
@@ -50,7 +50,7 @@
     </fact-definition>
     <fact-definition name="country">
         <prompt>Country</prompt>
-        <options> <!--todo: must become an opt-list-->
+        <options>
             <string>former yugoslav republic of macedonia</string>
             <string>albania</string>
             <string>armenia</string>
@@ -106,7 +106,7 @@
     </fact-definition>
     <fact-definition name="rights">
         <prompt>Rights</prompt>
-        <options> <!--todo: must become an opt-list-->
+        <options>
             <string>http://creativecommons.org/publicdomain/mark/1.0/</string>
             <string>http://creativecommons.org/publicdomain/zero/1.0/</string>
             <string>http://creativecommons.org/licenses/by/3.0/</string>
@@ -123,7 +123,7 @@
     </fact-definition>
     <fact-definition name="type">
         <prompt>Type</prompt>
-        <options> <!--todo: must become an opt-list-->
+        <options>
             <string>TEXT</string>
             <string>IMAGE</string>
             <string>SOUND</string>
