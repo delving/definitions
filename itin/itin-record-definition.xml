@@ -42,7 +42,18 @@
 
         <attr tag="eventType">
             <options>
-                <string>PENDING</string>
+                <string>Andere tocht</string>
+                <string>Concert</string>
+                <string>Festival</string>
+                <string>Fietstocht</string>
+                <string>Lezing</string>
+                <string>Markt</string>
+                <string>Overig</string>
+                <string>Re-enactment</string>
+                <string>Rondleiding</string>
+                <string>Tentoonstelling</string>
+                <string>Theater</string>
+                <string>Wandeltocht</string>
             </options>
         </attr>
 
@@ -99,11 +110,10 @@
 
 
         <elem tag="taxonomy" elems="category, subject, tags, sections"/>
-            <elem tag="category"/>
             <elem tag="subject"/>
             <elem tag="tags"/>
             <elem tag="sections"/>
-
+            <elem tag="category"/>
 
         <!-- Location, address, contact gis -->
         <elem tag="location" elems="name, address, urls, gis"/>
