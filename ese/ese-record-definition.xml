@@ -5,26 +5,30 @@
         <namespace prefix="ese" uri="http://www.europeana.eu/schemas/ese/" schema="http://www.europeana.eu/schemas/ese/ESE-3.4.xsd"/>
         <namespace prefix="dc" uri="http://purl.org/dc/elements/1.1/" schema="http://dublincore.org/schemas/xmls/qdc/dc.xsd"/>
         <namespace prefix="dcterms" uri="http://purl.org/dc/terms/" schema="http://dublincore.org/schemas/xmls/qdc/dcterms.xsd"/>
-        <namespace prefix="europeana" uri="http://www.europeana.eu/schemas/ese/" schema="http://www.europeana.eu/schemas/ese/ESE-V3.3.xsd"/>
+        <namespace prefix="europeana" uri="http://www.europeana.eu/schemas/ese/" schema="http://www.europeana.eu/schemas/ese/ESE-V3.4.xsd"/>
     </namespaces>
 
     <root tag="record">
-        <elem tag="dc:contributor"/>            
-        <elem tag="dc:coverage"/>               
-        <elem tag="dc:creator"/>                
-        <elem tag="dc:date"/>                   
-        <elem tag="dc:description"/>            
-        <elem tag="dc:format"/>                 
-        <elem tag="dc:identifier"/>             
-        <elem tag="dc:language"/>               
-        <elem tag="dc:publisher"/>              
-        <elem tag="dc:relation"/>               
-        <elem tag="dc:rights"/>                 
-        <elem tag="dc:source"/>                 
-        <elem tag="dc:subject"/>                
-        <elem tag="dc:title"/>                  
-        <elem tag="dc:type"/>                   
-        <elem tag="dcterms:alternative"/>       
+
+
+        <elem tag="dc:title"/>
+        <elem tag="dc:creator"/>
+        <elem tag="dc:subject"/>
+        <elem tag="dc:description"/>
+        <elem tag="dc:publisher"/>
+        <elem tag="dc:contributor"/>
+        <elem tag="dc:date"/>
+        <elem tag="dc:type"/>
+        <elem tag="dc:format"/>
+        <elem tag="dc:identifier"/>
+        <elem tag="dc:source"/>
+        <elem tag="dc:language"/>
+        <elem tag="dc:relation"/>
+        <elem tag="dc:coverage"/>
+        <elem tag="dc:rights"/>
+        <elem tag="dcterms:provenance"/>
+
+        <elem tag="dcterms:alternative"/>
         <elem tag="dcterms:conformsTo"/>        
         <elem tag="dcterms:created"/>           
         <elem tag="dcterms:extent"/>            
@@ -39,14 +43,14 @@
         <elem tag="dcterms:isVersionOf"/>       
         <elem tag="dcterms:issued"/>            
         <elem tag="dcterms:medium"/>            
-        <elem tag="dcterms:provenance"/>        
-        <elem tag="dcterms:references"/>        
+        <elem tag="dcterms:references"/>
         <elem tag="dcterms:replaces"/>          
         <elem tag="dcterms:requires"/>          
         <elem tag="dcterms:spatial"/>           
         <elem tag="dcterms:tableOfContents"/>   
-        <elem tag="dcterms:temporal"/>          
-        <elem tag="europeana:unstored"/>        
+        <elem tag="dcterms:temporal"/>
+
+        <elem tag="europeana:unstored"/>
         <elem tag="europeana:object"/>
         <elem tag="europeana:provider"/>        <!-- required -->
         <elem tag="europeana:type"/>            <!-- required -->
@@ -54,6 +58,8 @@
         <elem tag="europeana:dataProvider"/>    <!-- required -->
         <elem tag="europeana:isShownBy"/>       <!-- required or below-->
         <elem tag="europeana:isShownAt"/>       <!-- required or above-->
+        <elem tag="europeana:UGC"/>            <!-- required -->
+
     </root>
 
     <facts>
