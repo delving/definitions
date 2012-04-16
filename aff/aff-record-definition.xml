@@ -230,9 +230,6 @@
 
     </opts>
 
-
-
-
     <docs>
         <doc path="/record/thing/displayTitle">
             <string>Description: The name given to the resource. Typically, a Title will be a name by which the resource is formally known.</string>
