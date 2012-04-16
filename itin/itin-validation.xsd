@@ -7,7 +7,8 @@
 
 
 
-    <xs:attribute name="recordType" type="xs:string"/>
+    <xs:attribute name="label" type="xs:string"/>
+
     <xs:attribute name="type" type="xs:string"/>
     <xs:attribute name="sourceId" type="xs:string"/>
     <xs:attribute name="organizationType" type="xs:string"/>
@@ -32,6 +33,7 @@
 
     <xs:complexType name="recordType">
         <xs:sequence>
+            <xs:element type="itin:typeOfRecord" name="recordType" minOccurs="1" maxOccurs="1"/>
             <xs:element type="itin:adminType" name="admin" minOccurs="1" maxOccurs="1"/>
             <xs:element type="itin:organizationType" name="organization" minOccurs="0" />
             <xs:element type="itin:historyPersonType" name="history_person" minOccurs="0" />
@@ -42,9 +44,19 @@
             <xs:element type="itin:accomodationType" name="accomodation" minOccurs="0" />
             <xs:element type="itin:historyPeriodType" name="history_period" minOccurs="0" />
         </xs:sequence>
-        <xs:attribute ref="itin:recordType"/>
         <xs:attribute ref="itin:sourceId"/>
     </xs:complexType>
+
+    <xs:complexType name="typeOfRecord">
+        <xs:simpleContent>
+            <xs:extension base="xs:string">
+                <xs:attribute ref="itin:type"/>
+                <xs:attribute ref="itin:label"/>
+                <xs:attribute ref="itin:sourceId"/>
+            </xs:extension>
+        </xs:simpleContent>
+    </xs:complexType>
+
 
     <xs:complexType name="historyPeriodType">
         <xs:sequence>

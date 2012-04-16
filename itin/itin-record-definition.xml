@@ -10,7 +10,8 @@
 
     <attrs>
 
-        <attr tag="recordType"/>
+        <attr tag="type" systemField="true"/>
+        <attr tag="label" systemField="true"/>
 
         <attr tag="sourceId"/>
         <attr tag="type"/>
@@ -166,9 +167,12 @@
 
     </elems>
 
-    <root tag="record" attrs="recordType, sourceId">
 
 
+
+    <root tag="record">
+
+        <elem tag="recordType" attrs="type, label, sourceId"/>
 
         <elem tag="admin" singular="true" unmapable="true">
             <elem tag="displayDataProvider"/>
@@ -470,11 +474,18 @@
 
 
     <opts>
+        <opt-list path="/record/recordType" key="@type" value="@label">
 
-        <!--<opt-list path="/record/object" key="@type" value="@typeName">-->
-            <!--<opt hidden="true" key="object">Object</opt>-->
-        <!--</opt-list>-->
+            <opt hidden="true" key="organization">Organization</opt>
+            <opt hidden="true" key="history_person">Historical person</opt>
+            <opt hidden="true" key="reference">Bibliography</opt>
+            <opt hidden="true" key="event">Event</opt>
+            <opt hidden="true" key="pvb">Place of interest</opt>
+            <opt hidden="true" key="place">Place</opt>
+            <opt hidden="true" key="accommodation">Accommodation</opt>
+            <opt hidden="true" key="history_period">Historical period</opt>
 
+        </opt-list>
     </opts>
 
 
