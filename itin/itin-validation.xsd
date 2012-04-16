@@ -7,6 +7,7 @@
 
 
 
+    <xs:attribute name="recordType" type="xs:string"/>
     <xs:attribute name="type" type="xs:string"/>
     <xs:attribute name="sourceId" type="xs:string"/>
     <xs:attribute name="organizationType" type="xs:string"/>
@@ -23,7 +24,7 @@
     <xs:attribute name="path" type="xs:string"/>
 
 
-    <xs:element name="record" type="itin:recordType"/>
+    <xs:element type="itin:recordType" name="record" />
 
     <xs:complexType name="recordType">
         <xs:sequence>
@@ -32,8 +33,11 @@
             <xs:element type="itin:historyPersonType" name="history_person" minOccurs="0" />
             <xs:element type="itin:referenceType" name="reference" minOccurs="0" />
             <xs:element type="itin:eventType" name="event" minOccurs="0" />
+            <xs:element type="itin:pvbType" name="pvb" minOccurs="0" />
         </xs:sequence>
+        <xs:attribute ref="itin:recordType"/>
     </xs:complexType>
+
 
     <xs:complexType name="adminType">
         <xs:sequence>
@@ -78,6 +82,7 @@
             <xs:element type="itin:contactType" name="contact" minOccurs="0" maxOccurs="unbounded"/>
             <xs:element type="itin:locationType" name="location" minOccurs="0" maxOccurs="unbounded"/>
             <xs:element type="itin:linksType" name="links" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element type="itin:itinNodeType" name="itinNode" minOccurs="0" maxOccurs="unbounded"/>
         </xs:sequence>
     </xs:complexType>
 
@@ -281,21 +286,122 @@
 
     <xs:complexType name="gisType">
         <xs:sequence>
-            <xs:element name="geonamesUri" minOccurs="0" maxOccurs="1"/>
-            <xs:element name="geonamesId" minOccurs="0" maxOccurs="1"/>
-            <xs:element name="place" minOccurs="0" maxOccurs="1"/>
-            <xs:element name="long" minOccurs="0" maxOccurs="1"/>
-            <xs:element name="lat" minOccurs="0" maxOccurs="1"/>
+            <xs:element name="geonamesUri" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element name="geonamesId" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element name="place" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element name="long" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element name="lat" minOccurs="0" maxOccurs="unbounded"/>
         </xs:sequence>
     </xs:complexType>
 
     <xs:complexType name="taxonomyType">
         <xs:sequence>
-            <xs:element name="category" minOccurs="0" maxOccurs="1"/>
-            <xs:element name="subject" minOccurs="0" maxOccurs="1"/>
-            <xs:element name="tags" minOccurs="0" maxOccurs="1"/>
-            <xs:element name="sections" minOccurs="0" maxOccurs="1"/>
+            <xs:element name="category" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element name="subject" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element name="tags" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element name="sections" minOccurs="0" maxOccurs="unbounded"/>
         </xs:sequence>
     </xs:complexType>
+
+    <xs:complexType name="pvbType">
+        <xs:sequence>
+            <xs:element name="language" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element name="title" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element type="itin:descriptionType" name="description" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element name="additional" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element name="poi_subtype" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element type="itin:factual_infoType" name="factual_info" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element name="use" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element name="suggestions" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element type="itin:infoType" name="info" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element type="itin:surroundingsType" name="surroundings" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element type="itin:visitor_infoType" name="visitor_info" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element type="itin:historyType" name="history" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element name="amazon" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element name="ref_collection" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element name="sources" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element name="attachments" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element type="itin:taxonomyType" name="taxonomy" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element name="media" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element name="path" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element type="itin:linksType" name="links" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="descriptionType">
+        <xs:sequence>
+            <xs:element name="year" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element name="date" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element name="date_year" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element name="date_circa" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element name="importance" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element name="poi_type" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element name="taglines" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element name="summary" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element name="body" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="factual_infoType">
+        <xs:sequence>
+            <xs:element name="poi_friends" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element name="poi_friends_of" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element name="poi_society_info" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element name="poi_society" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="infoType">
+        <xs:sequence>
+            <xs:element name="directions" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element name="public_transportation" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element name="phone" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element name="url" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element name="email" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element name="twitter" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element name="facebook" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element name="hyves" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="surroundingsType">
+        <xs:sequence>
+            <xs:element name="surroundings" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="visitor_infoType">
+        <xs:sequence>
+            <xs:element name="public_access" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element name="days_open" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element name="visitor_info" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element name="fee" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element name="fees" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element name="cjp" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element name="children_friendly" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element type="itin:facilitiesType" name="facilities" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="facilitiesType">
+        <xs:sequence>
+            <xs:element name="facilities_shop" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element name="facilities_horeca" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element name="facilities_toilet" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element name="facilities_parking" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element name="facilities_wheelchair" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element name="wifi" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element name="facilities_other" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="historyType">
+        <xs:sequence>
+            <xs:element name="history" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element name="type" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+
+
 
 </xs:schema>

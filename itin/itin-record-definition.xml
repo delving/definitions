@@ -10,6 +10,8 @@
 
     <attrs>
 
+        <attr tag="recordType"/>
+
         <attr tag="sourceId"/>
         <attr tag="type"/>
 
@@ -136,14 +138,13 @@
 
     </elems>
 
-    <root tag="record">
+    <root tag="record" attrs="recordType">
 
         <elem tag="admin" singular="true" unmapable="true">
             <elem tag="displayDataProvider"/>
             <elem tag="displayDataProviderCountry"/>
             <elem tag="displayProvider"/>
         </elem>
-
 
         <elem tag="organization" attrs="sourceId, organizationType" elems="itinNode, open, address, contact, taxonomy">
 
@@ -195,7 +196,7 @@
             <elem tag="related_history_person"/>
         </elem>
 
-        <elem tag="event" attrs="sourceId" elems="calendar, contact, location, links">
+        <elem tag="event" attrs="sourceId" elems="calendar, contact, location, links, itinNode">
 
 
             <elem tag="categories">
@@ -224,6 +225,68 @@
             <elem tag="websiteUrl"/>
         </elem>
 
+        <elem tag="pvb" elems="taxonomy, media, path, links">
+
+            <elem tag="language"/>
+            <elem tag="title"/>
+            <elem tag="description" elems="taglines, summary, body">
+                <elem tag="year"/>
+                <elem tag="date"/>
+                <elem tag="date_year"/>
+                <elem tag="date_circa"/>
+                <elem tag="importance"/>
+                <elem tag="poi_type"/>
+            </elem>
+            <elem tag="additional"/>
+            <elem tag="poi_subtype"/>
+            <elem tag="factual_info">
+                <elem tag="poi_friends"/>
+                <elem tag="poi_friends_of"/>
+                <elem tag="poi_society_info"/>
+                <elem tag="poi_society"/>
+            </elem>
+            <elem tag="use"/>
+            <elem tag="suggestions"/>
+            <elem tag="info">
+                <elem tag="directions"/>
+                <elem tag="public_transportation"/>
+                <elem tag="phone"/>
+                <elem tag="url"/>
+                <elem tag="email"/>
+                <elem tag="twitter"/>
+                <elem tag="facebook"/>
+                <elem tag="hyves"/>
+            </elem>
+            <elem tag="surroundings">
+                <elem tag="surroundings"/>
+            </elem>
+            <elem tag="visitor_info">
+                <elem tag="public_access"/>
+                <elem tag="days_open"/>
+                <elem tag="visitor_info"/>
+                <elem tag="fee"/>
+                <elem tag="fees"/>
+                <elem tag="cjp"/>
+                <elem tag="children_friendly"/>
+                <elem tag="facilities">
+                    <elem tag="facilities_shop"/>
+                    <elem tag="facilities_horeca"/>
+                    <elem tag="facilities_toilet"/>
+                    <elem tag="facilities_parking"/>
+                    <elem tag="facilities_wheelchair"/>
+                    <elem tag="wifi"/>
+                    <elem tag="efacilities_other"/>
+                </elem>
+            </elem>
+            <elem tag="history">
+                <elem tag="history"/>
+                <elem tag="use"/>
+            </elem>
+            <elem tag="amazon"/>
+            <elem tag="ref_collection"/>
+            <elem tag="sources"/>
+            <elem tag="attachments"/>
+        </elem>
 
         <!--<elem tag="accommodation" attrs="sourceId, accommodationType" elems="itinNode, open, contact, taxonomy, links">-->
 
@@ -243,68 +306,6 @@
         <!--</elem>-->
 
 
-        <!--<elem tag="pvb" elems="taxonomy, media, path">-->
-
-            <!--<elem tag="language"/>-->
-            <!--<elem tag="title"/>-->
-            <!--<elem tag="description" elems="taglines, summary, body">-->
-                <!--<elem tag="year"/>-->
-                <!--<elem tag="date"/>-->
-                <!--<elem tag="date_year"/>-->
-                <!--<elem tag="date_circa"/>-->
-                <!--<elem tag="importance"/>-->
-                <!--<elem tag="poi_type"/>-->
-            <!--</elem>-->
-            <!--<elem tag="additional"/>-->
-            <!--<elem tag="poi_subtype"/>-->
-            <!--<elem tag="factual_info">-->
-                <!--<elem tag="poi_friends"/>-->
-                <!--<elem tag="poi_friends_of"/>-->
-                <!--<elem tag="poi_society_info"/>-->
-                <!--<elem tag="poi_society"/>-->
-            <!--</elem>-->
-            <!--<elem tag="use"/>-->
-            <!--<elem tag="suggestions"/>-->
-            <!--<elem tag="info">-->
-                <!--<elem tag="directions"/>-->
-                <!--<elem tag="public_transportation"/>-->
-                <!--<elem tag="phone"/>-->
-                <!--<elem tag="url"/>-->
-                <!--<elem tag="email"/>-->
-                <!--<elem tag="twitter"/>-->
-                <!--<elem tag="facebook"/>-->
-                <!--<elem tag="hyves"/>-->
-            <!--</elem>-->
-            <!--<elem tag="surroundings">-->
-                <!--<elem tag="surroundings"/>-->
-            <!--</elem>-->
-            <!--<elem tag="visitor_info">-->
-                <!--<elem tag="public_access"/>-->
-                <!--<elem tag="days_open"/>-->
-                <!--<elem tag="visitor_info"/>-->
-                <!--<elem tag="fee"/>-->
-                <!--<elem tag="fees"/>-->
-                <!--<elem tag="cjp"/>-->
-                <!--<elem tag="children_friendly"/>-->
-                <!--<elem tag="facilities">-->
-                    <!--<elem tag="facilities_shop"/>-->
-                    <!--<elem tag="facilities_horeca"/>-->
-                    <!--<elem tag="facilities_toilet"/>-->
-                    <!--<elem tag="facilities_parking"/>-->
-                    <!--<elem tag="facilities_wheelchair"/>-->
-                    <!--<elem tag="wifi"/>-->
-                    <!--<elem tag="facilities_other"/>-->
-                <!--</elem>-->
-            <!--</elem>-->
-            <!--<elem tag="history">-->
-                <!--<elem tag="history"/>-->
-                <!--<elem tag="use"/>-->
-            <!--</elem>-->
-            <!--<elem tag="amazon"/>-->
-            <!--<elem tag="ref_collection"/>-->
-            <!--<elem tag="sources"/>-->
-            <!--<elem tag="attachments"/>-->
-        <!--</elem>-->
 
 
 
