@@ -10,6 +10,7 @@
 
     <attrs>
         <attr tag="localId"/>
+        <attr tag="conceptType"/>
         <attr tag="categoryUri"/>
         <attr tag="schema"/>
         <attr tag="schemaUri"/>
@@ -72,7 +73,9 @@
             <elem tag="displayTitle"/>
             <elem tag="displayDescription"/>
             <elem tag="displayInscription"/>
-            <elem tag="displayDimension"/>
+            <elem tag="dimensions">
+                <elem tag="displayDimension"/>
+            </elem>
             <elem tag="displayYear"/>
             <elem tag="displayRights"/>
         </elem>
@@ -84,8 +87,8 @@
         </elem>
 
         <elem tag="concepts" singular="true" unmapable="true">
-            <elem tag="concept" attrs="type, typeUri, localId, lang, schema, schemaUri">
-                <elem tag="displayConcept"/>
+            <elem tag="concept" attrs="type, typeUri">
+                <elem attrs="conceptType, localId, lang, schema, schemaUri" tag="displayConcept"/>
             </elem>
         </elem>
 
@@ -93,6 +96,7 @@
             <elem tag="event" elems="date" attrs="type, typeUri, lang">
                 <elem tag="displayDate"/>
                 <elem tag="displayEvent"/>
+                <elem tag="displayPeriod"/>
                 <elem tag="displayMethod"/>
                 <elem tag="displayDescription"/>
 
@@ -166,9 +170,9 @@
         </opt-list>
 
         <opt-list path="/record/relations/relation" key="@typeUri" value="@type" displayName="Relations">
-            <opt key="http://id.culturecloud.eu/concepts/#isPartOf">Is part of</opt>
-            <opt hidden="true" key="http://id.culturecloud.eu/concepts/#hasPart">Has part</opt>
-            <opt hidden="true" key="http://id.culturecloud.eu/concepts/#sameaAs">Same as</opt>
+            <opt key="http://id.culturecloud.eu/concepts/#isPartOf">isPartof</opt>
+            <opt hidden="true" key="http://id.culturecloud.eu/concepts/#hasPart">hasPart</opt>
+            <opt hidden="true" key="http://id.culturecloud.eu/concepts/#sameaAs">sameAs</opt>
         </opt-list>
 
         <opt-list path="/record/events/event" key="@typeUri" value="@type" displayName="Events">
@@ -210,7 +214,7 @@
 
         <opt-list path="/record/concepts/concept" key="@typeUri" value="@type" displayName="Concepts">
             <opt key="http://id.culturecloud.eu/concepts/#workType">Work type</opt>
-            <opt hidden="true" key="http://id.culturecloud.eu/concepts/#objectName">Object name/keyword</opt>
+            <opt hidden="true" key="http://id.culturecloud.eu/concepts/#objectName">Keyword</opt>
             <opt hidden="true" key="http://id.culturecloud.eu/concepts/#classification">Classification</opt>
             <opt hidden="true" key="http://www.cidoc-crm.org/rdfs/P129B_????">Subject</opt>
             <opt hidden="true" key="http://www.cidoc-crm.org/rdfs/E57_?????">Material</opt>

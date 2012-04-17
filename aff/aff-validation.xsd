@@ -8,6 +8,7 @@
     <xs:element name="record" type="aff:recordType"/>
 
     <xs:attribute name="localId" type="xs:string"/>
+    <xs:attribute name="conceptType" type="xs:string"/>
     <xs:attribute name="categoryUri" type="xs:string"/>
     <xs:attribute name="schema" type="xs:string"/>
     <xs:attribute name="schemaUri" type="xs:string"/>
@@ -92,19 +93,25 @@
 
     <xs:complexType name="thingType">
         <xs:sequence>
-            <xs:element name="uri"  type="xs:string" minOccurs="1" maxOccurs="1"/>
+            <xs:element name="uri"  type="xs:anyURI" minOccurs="1" maxOccurs="1"/>
             <!--<xs:element name="displayCategory" type="aff:categoryType" minOccurs="1" maxOccurs="1"/>-->
-            <xs:element name="displayIdentification"  type="xs:anyURI" minOccurs="1" maxOccurs="1"/>
+            <xs:element name="displayIdentification"  type="xs:string" minOccurs="1" maxOccurs="1"/>
             <xs:element name="displayTitle" type="xs:string" minOccurs="0" maxOccurs="1"/>
             <xs:element name="displayDescription" type="xs:string" minOccurs="0" maxOccurs="1"/>
             <xs:element name="displayInscription" type="xs:string" minOccurs="0" maxOccurs="1"/>
-            <xs:element name="displayDimension" type="xs:string" minOccurs="0" maxOccurs="1"/>
+            <xs:element type="aff:dimensionsType" name="dimensions"  minOccurs="0" maxOccurs="1"/>
             <xs:element name="displayYear" type="xs:string" minOccurs="0" maxOccurs="1"/>
             <xs:element name="displayRights" type="xs:string" minOccurs="0" maxOccurs="1"/>
         </xs:sequence>
         <xs:attribute ref="aff:localId"/>
         <xs:attribute ref="aff:lang"/>
         <xs:attribute ref="aff:hubId"/>
+    </xs:complexType>
+
+    <xs:complexType name="dimensionsType">
+        <xs:sequence>
+            <xs:element name="displayDimension" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
     </xs:complexType>
 
     <!--<xs:complexType name="categoryType">-->
@@ -144,16 +151,23 @@
 
     <xs:complexType name="conceptType">
         <xs:sequence>
-            <xs:element name="displayConcept" maxOccurs="unbounded" minOccurs="0" />
+            <xs:element type="aff:simpleConceptType" name="displayConcept" maxOccurs="unbounded" minOccurs="0" />
         </xs:sequence>
         <xs:attribute ref="aff:type"/>
         <xs:attribute ref="aff:typeUri"/>
-        <xs:attribute ref="aff:localId"/>
-        <xs:attribute ref="aff:lang"/>
-        <xs:attribute ref="aff:schema"/>
-        <xs:attribute ref="aff:schemaUri"/>
     </xs:complexType>
 
+    <xs:complexType name="simpleConceptType">
+        <xs:simpleContent>
+            <xs:extension base="xs:string">
+                <xs:attribute ref="aff:conceptType"/>
+                <xs:attribute ref="aff:localId"/>
+                <xs:attribute ref="aff:lang"/>
+                <xs:attribute ref="aff:schema"/>
+                <xs:attribute ref="aff:schemaUri"/>
+            </xs:extension>
+        </xs:simpleContent>
+    </xs:complexType>
 
     <!-- Events -->
     <xs:complexType name="eventsType">
@@ -166,6 +180,7 @@
         <xs:sequence>
             <xs:element name="displayDate" type="xs:string" minOccurs="0" maxOccurs="1"/>
             <xs:element name="displayEvent" type="xs:string" minOccurs="0" maxOccurs="1"/>
+            <xs:element name="displayPeriod" type="xs:string" minOccurs="0" maxOccurs="1"/>
             <xs:element name="displayMethod" type="xs:string" minOccurs="0" maxOccurs="1"/>
             <xs:element name="displayDescription" type="xs:string" minOccurs="0" maxOccurs="1"/>
             <xs:element type="aff:eventActorType" name="eventActor" minOccurs="0" maxOccurs="unbounded"/>
