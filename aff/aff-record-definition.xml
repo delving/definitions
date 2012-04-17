@@ -233,6 +233,17 @@
         </opt-list>
 
     </opts>
+    
+    <summaryFields>
+        <summaryField name="CREATOR" xpath="/record/thing/displayTitle/"/>
+        <summaryField name="TITLE" xpath="/record/thing/displayTitle/"/>
+        <summaryField name="DESCRIPTION" xpath="/record/thing/displayDescription/"/>
+        <summaryField name="OWNER" xpath="/record/admin/dataProvider"/>
+        <summaryField name="LANDING_PAGE" xpath="/record/thing/displayTitle/"/>
+        <summaryField name="THUMBNAIL" xpath="/record/thing/displayTitle/"/>
+        <summaryField name="SNIPPET" xpath="/record/thing/displayDescription"/>
+    </summaryFields>
+    
 
     <docs>
         <doc path="/record/thing/displayTitle">
