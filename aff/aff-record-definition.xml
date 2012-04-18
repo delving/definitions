@@ -167,11 +167,11 @@
             <opt hidden="true" key="http://id.culturecloud.eu/concepts/#fonds">fonds</opt>
         </opt-list>
 
-        <opt-list path="/record/facets/facet/childFacet" key="@typeUri" value="@type">
+        <opt-list path="/record/facets/facet/childFacet" key="@typeUri" value="@type" displayName="Snus 1">
             <opt hidden="true" key="http://id.culturecloud.eu/concepts/#fond">series</opt>
         </opt-list>
 
-        <opt-list path="/record/facets/facet/childFacet/childFacet" key="@typeUri" value="@type">
+        <opt-list path="/record/facets/facet/childFacet/childFacet" key="@typeUri" value="@type" displayName="Snus 2">
             <opt hidden="true" key="http://id.culturecloud.eu/concepts/#file">file</opt>
         </opt-list>
 
