@@ -156,6 +156,12 @@
 
     <opts>
 
+        <!-- todo: this is an example of a choice, like the old <options>, indicated by lack of "key"-->
+        <!--<opt-list path="/record/admin/defaultLang" displayName="Language Experiment">-->
+            <!--<opt>en</opt>-->
+            <!--<opt>nl</opt>-->
+        <!--</opt-list>-->
+
         <opt-list path="/record/facets/facet" key="@typeUri" value="@type" displayName="Facets">
             <opt hidden="true" key="http://www.cidoc-crm.org/rdfs/E78.Collection">collection</opt>
             <opt hidden="true" key="http://id.culturecloud.eu/concepts/#fonds">fonds</opt>
