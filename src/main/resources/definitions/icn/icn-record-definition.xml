@@ -25,62 +25,62 @@
         <elem tag="icn:acquiredWithHelpFrom"/>
         <elem tag="icn:physicalState"/>
 
-        <elem tag="dc:title"/>                  <!-- ESE 3.4 -->
-        <elem tag="dc:creator"/>                <!-- ESE 3.4 -->
-        <elem tag="dc:subject"/>                <!-- ESE 3.4 -->
-        <elem tag="dc:description"/>            <!-- ESE 3.4 -->
-        <elem tag="dc:publisher"/>              <!-- ESE 3.4 -->
-        <elem tag="dc:contributor"/>            <!-- ESE 3.4 -->
-        <elem tag="dc:date"/>                   <!-- ESE 3.4 -->
-        <elem tag="dc:type"/>                   <!-- ESE 3.4 -->
-        <elem tag="dc:format"/>                 <!-- ESE 3.4 -->
-        <elem tag="dc:identifier"/>             <!-- ESE 3.4 -->
-        <elem tag="dc:source"/>                 <!-- ESE 3.4 -->
-        <elem tag="dc:language"/>               <!-- ESE 3.4 -->
-        <elem tag="dc:relation"/>               <!-- ESE 3.4 -->
-        <elem tag="dc:coverage"/>               <!-- ESE 3.4 -->
-        <elem tag="dc:rights"/>                 <!-- ESE 3.4 -->
+        <elem tag="dc:title" summaryField="TITLE"/>                    <!-- ESE 3.4 -->
+        <elem tag="dc:creator" summaryField="CREATOR"/>                <!-- ESE 3.4 -->
+        <elem tag="dc:subject"/>                                       <!-- ESE 3.4 -->
+        <elem tag="dc:description" summaryField="DESCRIPTION"/>        <!-- ESE 3.4 -->
+        <elem tag="dc:publisher"/>                                     <!-- ESE 3.4 -->
+        <elem tag="dc:contributor"/>                                   <!-- ESE 3.4 -->
+        <elem tag="dc:date"/>                                          <!-- ESE 3.4 -->
+        <elem tag="dc:type"/>                                          <!-- ESE 3.4 -->
+        <elem tag="dc:format"/>                                        <!-- ESE 3.4 -->
+        <elem tag="dc:identifier"/>                                    <!-- ESE 3.4 -->
+        <elem tag="dc:source"/>                                        <!-- ESE 3.4 -->
+        <elem tag="dc:language"/>                                      <!-- ESE 3.4 -->
+        <elem tag="dc:relation"/>                                      <!-- ESE 3.4 -->
+        <elem tag="dc:coverage"/>                                      <!-- ESE 3.4 -->
+        <elem tag="dc:rights"/>                                        <!-- ESE 3.4 -->
 
-        <elem tag="dcterms:created"/>           <!-- ESE 3.4 -->
-        <elem tag="dcterms:extent"/>            <!-- ESE 3.4 -->
-        <elem tag="dcterms:hasFormat"/>         <!-- ESE 3.4 -->
-        <elem tag="dcterms:hasPart"/>           <!-- ESE 3.4 -->
-        <elem tag="dcterms:hasVersion"/>        <!-- ESE 3.4 -->
-        <elem tag="dcterms:isFormatOf"/>        <!-- ESE 3.4 -->
-        <elem tag="dcterms:isPartOf"/>          <!-- ESE 3.4 -->
-        <elem tag="dcterms:isReferencedBy"/>    <!-- ESE 3.4 -->
-        <elem tag="dcterms:isReplacedBy"/>      <!-- ESE 3.4 -->
-        <elem tag="dcterms:isRequiredBy"/>      <!-- ESE 3.4 -->
-        <elem tag="dcterms:isVersionOf"/>       <!-- ESE 3.4 -->
-        <elem tag="dcterms:issued"/>            <!-- ESE 3.4 -->
-        <elem tag="dcterms:medium"/>            <!-- ESE 3.4 -->
-        <elem tag="dcterms:references"/>        <!-- ESE 3.4 -->
-        <elem tag="dcterms:replaces"/>          <!-- ESE 3.4 -->
-        <elem tag="dcterms:requires"/>          <!-- ESE 3.4 -->
-        <elem tag="dcterms:tableOfContents"/>   <!-- ESE 3.4 -->
-        <elem tag="dcterms:alternative"/>       <!-- ESE 3.4 -->
-        <elem tag="dcterms:spatial"/>           <!-- ESE 3.4 -->
-        <elem tag="dcterms:temporal"/>          <!-- ESE 3.4 -->
-        <elem tag="dcterms:provenance"/>        <!-- ESE 3.4 -->
-        <elem tag="dcterms:rightsHolder"/>      <!-- NOT part of ESE 3.4 -->
+        <elem tag="dcterms:created"/>                                  <!-- ESE 3.4 -->
+        <elem tag="dcterms:extent"/>                                   <!-- ESE 3.4 -->
+        <elem tag="dcterms:hasFormat"/>                                <!-- ESE 3.4 -->
+        <elem tag="dcterms:hasPart"/>                                  <!-- ESE 3.4 -->
+        <elem tag="dcterms:hasVersion"/>                               <!-- ESE 3.4 -->
+        <elem tag="dcterms:isFormatOf"/>                               <!-- ESE 3.4 -->
+        <elem tag="dcterms:isPartOf"/>                                 <!-- ESE 3.4 -->
+        <elem tag="dcterms:isReferencedBy"/>                           <!-- ESE 3.4 -->
+        <elem tag="dcterms:isReplacedBy"/>                             <!-- ESE 3.4 -->
+        <elem tag="dcterms:isRequiredBy"/>                             <!-- ESE 3.4 -->
+        <elem tag="dcterms:isVersionOf"/>                              <!-- ESE 3.4 -->
+        <elem tag="dcterms:issued"/>                                   <!-- ESE 3.4 -->
+        <elem tag="dcterms:medium"/>                                   <!-- ESE 3.4 -->
+        <elem tag="dcterms:references"/>                               <!-- ESE 3.4 -->
+        <elem tag="dcterms:replaces"/>                                 <!-- ESE 3.4 -->
+        <elem tag="dcterms:requires"/>                                 <!-- ESE 3.4 -->
+        <elem tag="dcterms:tableOfContents"/>                          <!-- ESE 3.4 -->
+        <elem tag="dcterms:alternative"/>                              <!-- ESE 3.4 -->
+        <elem tag="dcterms:spatial"/>                                  <!-- ESE 3.4 -->
+        <elem tag="dcterms:temporal"/>                                 <!-- ESE 3.4 -->
+        <elem tag="dcterms:provenance"/>                               <!-- ESE 3.4 -->
+        <elem tag="dcterms:rightsHolder"/>                             <!-- NOT part of ESE 3.4 -->
 
 
-        <elem tag="europeana:isShownBy"/>       <!-- ESE 3.4 -->
-        <elem tag="europeana:rights"/>          <!-- ESE 3.4 -->
-        <elem tag="europeana:isShownAt"/>       <!-- ESE 3.4 -->
-        <elem tag="europeana:unstored"/>        <!-- ESE 3.4 -->
-        <elem tag="europeana:object"/>          <!-- ESE 3.4 -->
-        <elem tag="europeana:provider"/>        <!-- ESE 3.4 -->
-        <elem tag="europeana:dataProvider"/>    <!-- ESE 3.4 -->
-        <elem tag="europeana:type"/>            <!-- ESE 3.4 -->
+        <elem tag="europeana:isShownBy"/>                              <!-- ESE 3.4 -->
+        <elem tag="europeana:rights"/>                                 <!-- ESE 3.4 -->
+        <elem tag="europeana:isShownAt" summaryField="LANDING_PAGE"/>  <!-- ESE 3.4 -->
+        <elem tag="europeana:unstored"/>                               <!-- ESE 3.4 -->
+        <elem tag="europeana:object" summaryField="THUMBNAIL"/>        <!-- ESE 3.4 -->
+        <elem tag="europeana:provider" summaryField="PROVIDER"/>       <!-- ESE 3.4 -->
+        <elem tag="europeana:dataProvider" summaryField="OWNER"/>      <!-- ESE 3.4 -->
+        <elem tag="europeana:type"/>                                   <!-- ESE 3.4 -->
 
         <!-- moved from europeana to delving -->
-        <elem tag="europeana:uri"/>             <!-- ESE 3.4, not accepted by the office and not part of the ESE XSD-->
-        <elem tag="europeana:language"/>        <!-- ESE 3.4, not accepted by the office and not part of the ESE XSD -->
-        <elem tag="europeana:country"/>         <!-- ESE 3.4,  not accepted by the office and not part of the ESE XSD -->
-        <elem tag="europeana:collectionName"/>  <!-- NOT part of ESE 3.4 -->
-        <elem tag="europeana:collectionTitle"/> <!-- NOT part of ESE 3.4 -->
-        <elem tag="europeana:source"/>          <!-- NOT part of ESE 3.4 -->
+        <elem tag="europeana:uri"/>                                    <!-- ESE 3.4, not accepted by the office and not part of the ESE XSD-->
+        <elem tag="europeana:language"/>                               <!-- ESE 3.4, not accepted by the office and not part of the ESE XSD -->
+        <elem tag="europeana:country"/>                                <!-- ESE 3.4,  not accepted by the office and not part of the ESE XSD -->
+        <elem tag="europeana:collectionName"/>                         <!-- NOT part of ESE 3.4 -->
+        <elem tag="europeana:collectionTitle"/>                        <!-- NOT part of ESE 3.4 -->
+        <elem tag="europeana:source"/>                                 <!-- NOT part of ESE 3.4 -->
 
         <!-- original delving namespace -->
         <elem tag="delving:year"/>
@@ -91,8 +91,8 @@
 
     </root>
 
-    <options>
-    </options>
+    <opts>
+    </opts>
 
     <searchFields>
         <searchField name="CREATOR" path="/record/dc:creator"/>
@@ -134,20 +134,6 @@
         </doc>
         <!-- ... -->
     </docs>
-
-    <bookmarks>
-        <!--<category name="Mandatory ICN elements">-->
-            <!--<doc>-->
-                <!--<string>These elements must be included in any ESE delivery to Europeana</string>-->
-            <!--</doc>-->
-            <!--<ref path="/europeana:provider" display="Provider"/>-->
-            <!--<ref path="/europeana:dataProvider" display="Data provider"/>-->
-            <!--<ref path="/europeana:rights" display="Rights"/>-->
-            <!--<ref path="/europeana:type" display="Type"/>-->
-            <!--<ref path="/europeana:isShownBy" display="Is Shown By"/>-->
-            <!--<ref path="/europeana:isShownAt" display="Is Shown At"/>-->
-        <!--</category>-->
-    </bookmarks>
 
 </record-definition>
 
