@@ -21,8 +21,8 @@
         <elem tag="abm:lat"/>
         <elem tag="abm:long"/>
         <elem tag="abm:type"/>
-        <elem tag="abm:geo" type="location"/>
-
+        <elem tag="abm:geo" fieldType="location"/>
+        <elem tag="abm:creatorUri" fieldType="string"/>
 
         <elem tag="dc:contributor"/>
         <!-- ESE 3.4 -->
@@ -146,7 +146,6 @@
 
     <field-markers>
 
-        <!-- system fields -->
         <field-marker name="CREATOR" path="/record/dc:creator"/>
         <field-marker name="TITLE" path="/record/dc:title"/>
         <field-marker name="DESCRIPTION" path="/record/dc:description"/>
