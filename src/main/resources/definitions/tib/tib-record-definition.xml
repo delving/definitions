@@ -33,7 +33,7 @@
                 <string>123</string>
             </sample-input>
             <groovy-code>
-                <string>&quot;http://www.thuisinbrabant.nl/object/${spec}/${it}&quot;</string>
+                <string>&quot;http://brabantcloud.eu/brabantcloud/thing/${spec}/${it}&quot;</string>
             </groovy-code>
         </mapping-function>
         <mapping-function name="largeThumbnail">
@@ -41,7 +41,7 @@
                 <string>D:/Documents/Schilderij/010.jpg</string>
             </sample-input>
             <groovy-code>
-                <string>&quot;http://thuisinbrabant.delving.org/thumbnail/thuisinbrabant/${spec}/${it.replaceAll(&apos;^.*[\\/|\\\\]&apos;,&apos;&apos;).replaceAll(&apos;.jpg|.JPG|.jpeg|.tif|.TIF&apos;, &apos;&apos;)}/500&quot;</string>
+                <string>&quot;http://brabantcloud.eu/thumbnail/brabantcloud/${spec}/${it.replaceAll(&apos;^.*[\\/|\\\\]&apos;,&apos;&apos;).replaceAll(&apos;.jpg|.JPG|.jpeg|.tif|.TIF&apos;, &apos;&apos;)}/500&quot;</string>
             </groovy-code>
         </mapping-function>
         <mapping-function name="lowercase">
@@ -71,7 +71,7 @@
         </mapping-function>
         <mapping-function name="smallThumbnail">
             <groovy-code>
-                <string>&quot;http://thuisinbrabant.delving.org/thumbnail/thuisinbrabant/${spec}/${it.replaceAll(&apos;^.*[\\/|\\\\]&apos;,&apos;&apos;).replaceAll(&apos;.jpg|.JPG|.jpeg|.tif|.TIF&apos;, &apos;&apos;)}/180&quot;</string>
+                <string>&quot;http://brabantcloud.eu/thumbnail/brabantcloud/${spec}/${it.replaceAll(&apos;^.*[\\/|\\\\]&apos;,&apos;&apos;).replaceAll(&apos;.jpg|.JPG|.jpeg|.tif|.TIF&apos;, &apos;&apos;)}/180&quot;</string>
             </groovy-code>
         </mapping-function>
         <mapping-function name="toLocalId">
