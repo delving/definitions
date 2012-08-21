@@ -33,7 +33,7 @@
                 <string>123</string>
             </sample-input>
             <groovy-code>
-                <string>&quot;http://www.thuisinbrabant.nl/${spec}/${it}&quot;</string>
+                <string>&quot;http://www.thuisinbrabant.nl/object/${spec}/${it}&quot;</string>
             </groovy-code>
         </mapping-function>
         <mapping-function name="largeThumbnail">
@@ -224,5 +224,6 @@
     </field-markers>
 
 </record-definition>
+
 
 
